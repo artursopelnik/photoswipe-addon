@@ -11,26 +11,6 @@
         <meta name="author" content="Dominik Laube &amp; Chris Heinrich" />
         <meta name="description" content="" />
 
-
-        <!-- apple, android, windows favicons-->
-        <link rel="apple-touch-icon" sizes="57x57" href="{IniVars->pics_path}favicon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="{IniVars->pics_path}favicon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="{IniVars->pics_path}favicon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="{IniVars->pics_path}favicon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="{IniVars->pics_path}favicon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="{IniVars->pics_path}favicon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="{IniVars->pics_path}favicon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="{IniVars->pics_path}favicon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="{IniVars->pics_path}favicon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="{IniVars->pics_path}favicon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="{IniVars->pics_path}favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="{IniVars->pics_path}favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{IniVars->pics_path}favicon/favicon-16x16.png">
-        <link rel="manifest" href="{IniVars->pics_path}favicon/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="{IniVars->pics_path}favicon/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -38,27 +18,16 @@
     </head>
     <body>
         <div class="page-content">
-            <div id="test-gallery" class="gallery">
-
-                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-l-w="1600" data-l-h="1600" class="demo-gallery__img--main">
+            <div id="test-gallery" class="gallery pswp-addon">
+                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-w="1600" data-h="1600" class="demo-gallery__img--main">
                     <img src="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg" alt="" />
                 </a>
-                <a href="https://images.unsplash.com/photo-1438368915865-a852ef86fc42?q=80&fm=jpg&w=1080&fit=max&s=39b6964575874a20aeab2059d3b5e2e4" data-l-w="1600" data-l-h="1600" class="demo-gallery__img--main">
+                <a href="https://images.unsplash.com/photo-1438368915865-a852ef86fc42?q=80&fm=jpg&w=1080&fit=max&s=39b6964575874a20aeab2059d3b5e2e4" data-w="1600" data-h="1600" class="demo-gallery__img--main">
                     <img src="https://images.unsplash.com/photo-1438368915865-a852ef86fc42?q=80&fm=jpg&w=1080&fit=max&s=39b6964575874a20aeab2059d3b5e2e4" alt="" />
                 </a>
-                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-l-w="1600" data-l-h="1600" class="demo-gallery__img--main">
+                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-w="1600" data-h="1600" class="demo-gallery__img--main">
                     <img src="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg" alt="" />
                 </a>
-                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-l-w="1600" data-l-h="1600" class="demo-gallery__img--main">
-                    <img src="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg" alt="" />
-                </a>
-                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-l-w="1600" data-l-h="1600" class="demo-gallery__img--main">
-                    <img src="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg" alt="" />
-                </a>
-                <a href="https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg" data-l-w="1600" data-l-h="1600" class="demo-gallery__img--main">
-                    <img src="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg" alt="" />
-                </a>
-
             </div>
         </div>
 
@@ -98,11 +67,29 @@
                     </div>
                 </div>
             </div>
-            <div class="pswp__thumbs">
-
-            </div>
+            <div class="pswp__thumbs"></div>
         </div>
 
-        <script src="dist/js/photoswipe-addon.js" async></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe-ui-default.js"></script>
+        <script src="src/js/photoswipe-addon.js"></script>
+        <script>
+            $(function () {
+                $('.gallery > a').on('click', function (e) {
+                    var addon = new PhotoSwipeAddon({
+                        el: $(this),
+                        thumbnails: true,
+                        wrap: '.pswp-addon',
+                        item: 'a',
+                        pswp_settings: {
+                            index: $(this).index()
+                        }
+                    });
+
+                    e.preventDefault();
+                });
+            });
+        </script>
     </body>
 </html>

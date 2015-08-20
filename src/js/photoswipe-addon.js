@@ -1,81 +1,85 @@
-(function($) {
-    "use strict";
+var PhotoSwipeAddon = function (c_opts) {
+    'use strict';
 
-    var currentDoc = $(document),
-        currentWindow = $(window);
+    var that = this,
+        _thumbs = '';
 
-    // DOM ready
-    currentDoc.ready(function() {
-        $('.gallery > a').on('click', function(e) {
-            var pswpElement = document.querySelectorAll('.pswp')[0],
-                items = [],
-                thumbs = '',
-                currentSliderPic = $(this).eq(),
-                pswpGallery,
-                photoswipe_opts;
+    that.options = {
+        el: '',
+        thumbnails: true,
+        wrap: 'pswp-addon',
+        item: 'a',
+        items: [],
+        pswp_settings: {}
+    };
 
+    if (c_opts !== null) {
+        $.extend(that.options, c_opts);
+    }
 
-            photoswipe_opts = {
-                index: currentSliderPic,
-                closeOnScroll: false,
-                shareEl: false
-            };
+    that.init = function () {
+        that.pswpElement = document.querySelectorAll('.pswp')[0];
+        that.getItems();
+        that.makeThumbs();
+        that.openPSWP();
+        that.bindThumbsEvents();
+        that.setActiveThumb();
+    };
 
-            $('.gallery > a').each(function() {
+    that.getItems = function () {
+        if (that.options.items.length === 0) {
+            that.options.el.closest(that.options.wrap).find(that.options.item).each(function (i, v) {
                 var obj = $(this),
-                    thumb = '<li>' + $(this).html() + '</li>',
-                    el = {
-                        originalImage: {
-                            src: obj.attr('href'),
-                            w: obj.attr('data-l-w'),
-                            h: obj.attr('data-l-h')
-                        }
+                    obj_data = {
+                        src: obj.attr('href'),
+                        w: obj.attr('data-w'),
+                        h: obj.attr('data-h'),
+                        pid: i
                     };
-                thumbs += thumb;
-                items.push(el);
-            });
+                that.options.items.push(obj_data);
 
-            var video = {
-                html: '<div class="pswp__yt-wrap"><div class="pswp__yt-cell"><div class="pswp__yt-elm"><h1>Fuck</h1></div></div></div>'
-            };
+                if (that.options.thumbnails === true) {
+                    var thumb = '<li>' + obj.html() + '</li>';
 
-            // items.push(video);
-
-            $('.pswp__thumbs').append('<ul>' + thumbs + '</ul>');
-
-            console.log(items);
-
-            pswpGallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, photoswipe_opts);
-            var realViewportWidth,
-                useLargeImages = false,
-                firstResize = true,
-                imageSrcWillChange;
-
-            pswpGallery.listen('gettingData', function(index, item) {
-                if (item.originalImage) {
-                    item.src = item.originalImage.src;
-                    item.w = item.originalImage.w;
-                    item.h = item.originalImage.h;
+                    _thumbs += thumb;
                 }
             });
+        } else {
+            //todo
+        }
+    };
 
-            pswpGallery.init();
+    that.makeThumbs = function () {
+        if (_thumbs.length > 0) {
+            $('.pswp__thumbs').html('').append('<ul>' + _thumbs + '</ul>');
+        }
+    };
 
+    that.bindThumbsEvents = function () {
+        if (_thumbs.length > 0) {
             $(document).on('click', '.pswp__thumbs li', function () {
-                pswpGallery.goTo($(this).index());
-                $(this).addClass('active').siblings().removeClass('active');
+                var $el = $(this);
+
+                that.pswpGallery.goTo($el.index());
+                $el.addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');
             });
 
-            pswpGallery.listen('afterChange', function() {
-                $('.pswp__thumbs li').eq(pswpGallery.getCurrentIndex()).addClass('active').siblings().removeClass('active');
+            that.pswpGallery.listen('afterChange', function() {
+                that.setActiveThumb();    
             });
+        }     
+    };
 
-            e.preventDefault();
-        });
-    });
+    that.setActiveThumb = function () {
+        if (_thumbs.length > 0) {
+            $('.pswp__thumbs li').eq(that.pswpGallery.getCurrentIndex()).addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');
+        }
+    };
 
-    // recall functions after resize
-    // currentWindow.on('resize', Foundation.utils.throttle(function () {
+    that.openPSWP = function () {
+        that.pswpGallery = new PhotoSwipe(that.pswpElement, PhotoSwipeUI_Default, that.options.items, that.options.pswp_settings);
+        that.pswpGallery.init();
+    };
 
-    // }, 400));
-})(jQuery);
+    that.init();
+};

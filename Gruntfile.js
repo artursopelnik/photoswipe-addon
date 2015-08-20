@@ -23,9 +23,6 @@ module.exports = function (grunt) {
         concat: {
             website_foot: {
                 src: [
-                    "bower_components/jquery/dist/jquery.js",
-                    "bower_components/photoswipe/dist/photoswipe.js",
-                    "bower_components/photoswipe/dist/photoswipe-ui-default.js",
                     "src/js/photoswipe-addon.js"
                 ],
                 dest: 'dist/js/photoswipe-addon.js'
