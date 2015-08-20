@@ -1,0 +1,9 @@
+{
+  "name": "photoswipe addon",
+  "description": "Photoswipe addon",
+  "homepage": "https://github.com/jChris85/photoswipe-addon",
+  "dependencies": {
+    "jquery": "1.11.3",
+    "photoswipe": "4.1.0"
+  }
+}

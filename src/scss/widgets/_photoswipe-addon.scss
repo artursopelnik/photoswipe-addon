@@ -1,0 +1,22 @@
+.pswp__thumbs {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: blue;
+    ul {
+        @include pie-clearfix;
+    }
+    li {
+        display: block;
+        float: left;
+        height: 100px;
+        img {
+            height: 100px;
+        }
+        &.active {
+            outline: 3px solid red;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name" : "pswpaddon",
+    "description" : "Photoswipe Addon",
+    "version": "0.0.1",
+    "homepage": "https://github.com/jChris85/photoswipe-addon",
+    "dependencies": {
+        "grunt": "*",
+        "grunt-cli": "*",
+        "grunt-init": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-contrib-compass": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-concat": "*"
+    }
+}
