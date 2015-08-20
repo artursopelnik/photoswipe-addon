@@ -1,3 +1,3 @@
 ##Photoswipe Addon
 
-Feature lost coming soon.
+Feature list coming soon.
