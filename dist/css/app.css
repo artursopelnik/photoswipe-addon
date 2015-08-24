@@ -91,7 +91,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 60%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -220,6 +220,25 @@
 }
 
 /* line 1, ../../src/scss/widgets/_photoswipe-addon.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 3, ../../src/scss/widgets/_photoswipe-addon.scss */
+*:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 10, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__has-thumbs .pswp__scroll-wrap {
+  height: auto;
+  bottom: 100px;
+}
+
+/* line 16, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs {
   height: 100px;
   width: 100%;
@@ -227,10 +246,17 @@
   bottom: 0;
   left: 0;
   background: blue;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-/* line 8, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 25, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
   *zoom: 1;
+  white-space: nowrap;
+  height: 100%;
 }
 /* line 38, ../../vendor/ruby/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
 .pswp__thumbs ul:after {
@@ -238,17 +264,27 @@
   display: table;
   clear: both;
 }
-/* line 11, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 35, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li {
-  display: block;
-  float: left;
-  height: 100px;
+  display: inline-block;
+  margin-left: 4px;
+  border: 3px solid transparent;
 }
-/* line 15, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 37, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li img {
-  height: 100px;
+  display: block;
+  height: 76px;
 }
-/* line 18, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__thumbs li.active {
-  outline: 3px solid red;
+/* line 44, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li:first-child {
+  margin-left: 0;
+}
+/* line 51, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs .pswp__thumb-active {
+  border-color: red;
+}
+/* line 56, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs .pswp__thumbs-list {
+  padding: 10px;
+  height: 100px;
 }

@@ -1,3 +1,18 @@
+* {
+    @include box-sizing(border-box);
+    &:before,
+    &:after {
+        @include box-sizing(border-box);    
+    }
+}
+
+.pswp__scroll-wrap {
+    .pswp__has-thumbs & {
+        height: auto;
+        bottom: 100px;
+    }   
+}
+
 .pswp__thumbs {
     height: 100px;
     width: 100%;
@@ -5,18 +20,41 @@
     bottom: 0;
     left: 0;
     background: blue;
+    overflow-x: auto;
+    overflow-y: hidden;
     ul {
+        //reset begin
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        //reset end
         @include pie-clearfix;
+        white-space: nowrap;
+        height: 100%;
     }
     li {
-        display: block;
-        float: left;
-        height: 100px;
+        display: inline-block;
         img {
-            height: 100px;
+            display: block;
+            height: 76px;
         }
-        &.active {
-            outline: 3px solid red;
+        margin: {
+            left: 4px;
         }
+        &:first-child {
+            margin: {
+                left: 0;
+            }
+        }
+        border: 3px solid transparent;
+    }
+    .pswp__thumb-active {
+        border: {
+            color: red;
+        }
+    }
+    .pswp__thumbs-list {
+        padding: 10px;
+        height: 100px;    
     }
 }

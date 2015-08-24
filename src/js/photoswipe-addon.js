@@ -51,13 +51,14 @@ var PhotoSwipeAddon = function (c_opts) {
 
     that.makeThumbs = function () {
         if (_thumbs.length > 0) {
-            $('.pswp__thumbs').html('').append('<ul>' + _thumbs + '</ul>');
+            $('.pswp').addClass('pswp__has-thumbs');
+            $('.pswp__thumbs-list').html('').append('<ul>' + _thumbs + '</ul>');
         }
     };
 
     that.bindThumbsEvents = function () {
         if (_thumbs.length > 0) {
-            $(document).on('click', '.pswp__thumbs li', function () {
+            $(document).off('click').on('click', '.pswp__thumbs li', function () {
                 var $el = $(this);
 
                 that.pswpGallery.goTo($el.index());
@@ -72,7 +73,14 @@ var PhotoSwipeAddon = function (c_opts) {
 
     that.setActiveThumb = function () {
         if (_thumbs.length > 0) {
-            $('.pswp__thumbs li').eq(that.pswpGallery.getCurrentIndex()).addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');
+            var $newActive = $('.pswp__thumbs li').eq(that.pswpGallery.getCurrentIndex()),
+                scrollPos = $newActive.offset().left + $('.pswp__thumbs').scrollLeft() - 20;
+
+            $('.pswp__thumbs').stop(false, false).animate({
+                scrollLeft: scrollPos
+            }, 300, 'swing');
+
+            $newActive.addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');   
         }
     };
 
