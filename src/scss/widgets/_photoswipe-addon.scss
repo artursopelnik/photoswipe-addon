@@ -1,27 +1,36 @@
+$thumbs-list-height: 150px;
+$thumbs-list-padding: 15px;
+$thumbs-list-background: blue;
+$thumbs-border-size: 2px;
+$thumbs-border-style: solid;
+$thumbs-border-color: gray;
+$thumbs-active-border-color: lime;
+
 * {
     @include box-sizing(border-box);
     &:before,
     &:after {
-        @include box-sizing(border-box);    
+        @include box-sizing(border-box);
     }
 }
 
 .pswp__scroll-wrap {
     .pswp__has-thumbs & {
         height: auto;
-        bottom: 100px;
-    }   
+        bottom: $thumbs-list-height;
+    }
 }
 
 .pswp__thumbs {
-    height: 100px;
-    width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
-    background: blue;
+    width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    background: {
+        color: $thumbs-list-background;
+    }
     ul {
         //reset begin
         padding: 0;
@@ -34,27 +43,32 @@
     }
     li {
         display: inline-block;
-        img {
-            display: block;
-            height: 76px;
-        }
+        cursor: pointer;
         margin: {
             left: 4px;
+        }
+        img {
+            display: block;
+            height: $thumbs-list-height - (($thumbs-border-size * 2) + ($thumbs-list-padding * 2));
         }
         &:first-child {
             margin: {
                 left: 0;
             }
         }
-        border: 3px solid transparent;
+        border: {
+            size: $thumbs-border-size;
+            style: $thumbs-border-style;
+            color: $thumbs-border-color;
+        }
     }
     .pswp__thumb-active {
         border: {
-            color: red;
+            color: $thumbs-active-border-color;
         }
     }
     .pswp__thumbs-list {
-        padding: 10px;
-        height: 100px;    
+        padding: $thumbs-list-padding;
+        height: $thumbs-list-height;
     }
 }

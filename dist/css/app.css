@@ -219,37 +219,36 @@
   text-decoration: underline;
 }
 
-/* line 1, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 9, ../../src/scss/widgets/_photoswipe-addon.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 3, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 11, ../../src/scss/widgets/_photoswipe-addon.scss */
 *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 10, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 18, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__scroll-wrap {
   height: auto;
-  bottom: 100px;
+  bottom: 150px;
 }
 
-/* line 16, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 24, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs {
-  height: 100px;
-  width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: blue;
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  background-color: blue;
 }
-/* line 25, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 34, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs ul {
   padding: 0;
   margin: 0;
@@ -264,27 +263,30 @@
   display: table;
   clear: both;
 }
-/* line 35, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 44, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li {
   display: inline-block;
+  cursor: pointer;
   margin-left: 4px;
-  border: 3px solid transparent;
+  border-size: 2px;
+  border-style: solid;
+  border-color: gray;
 }
-/* line 37, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 50, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li img {
   display: block;
-  height: 76px;
+  height: 116px;
 }
-/* line 44, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 54, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li:first-child {
   margin-left: 0;
 }
-/* line 51, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 65, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs .pswp__thumb-active {
-  border-color: red;
+  border-color: lime;
 }
-/* line 56, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 70, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs .pswp__thumbs-list {
-  padding: 10px;
-  height: 100px;
+  padding: 15px;
+  height: 150px;
 }

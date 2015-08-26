@@ -1,11 +1,14 @@
 @charset "utf-8";
 
-// Import Compass
+// Compass
 @import "compass";
-@import "compass/css3/user-interface";
-@import "compass/css3/hyphenation";
 
+// Photoswipe core
 @import "widgets/photoswipe/main-settings";
 @import "widgets/photoswipe/main";
 
+// Photoswipe default skin
+// @import "widgets/photoswipe/default-skin/default-skin";
+
+// Photoswipe Addon (custom styles)
 @import "widgets/photoswipe-addon";
