@@ -12,6 +12,7 @@ css_dir          = "dist/css"
 sass_dir         = "src/scss"
 images_dir       = "dist/pics"
 javascripts_dir  = "dist/js"
+fonts_dir        = "fonts"
 
 # append options to sass --watch when developing
 # if environment == :development
