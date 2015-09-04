@@ -1,12 +1,38 @@
 // transition speed
 $time: 0.3s;
 
+// overlay
+$overlay-bg: #000000;
+$overlay-bg-opacity: 0.95;
+
+// overlay topbar buttons
+$topbar-button-color: #ffffff;
+$topbar-button-size: 44px;
+$topbar-button-icon-size: 14px;
+$topbar-button-icon-close: $fa-var-close;
+$topbar-button-icon-fullscreen: $fa-var-expand;
+$topbar-button-icon-share: $fa-var-share;
+$topbar-button-icon-zoom-in: $fa-var-search-plus;
+$topbar-button-icon-zoom-out: $fa-var-search-minus;
+
+// overlay prev/next button
+$button-arrow-size: 44px;
+$button-arrow-bg: blue;
+$button-arrow-icon-size: 20px;
+$button-arrow-icon-color: #ffffff;
+$button-arrow-icon-left: $fa-var-angle-left;
+$button-arrow-icon-right: $fa-var-angle-right;
+
 // thumbnails
 $thumbs-list-height: 150px;
 $thumbs-list-padding: 15px;
 $thumbs-list-background: blue;
+$thumbs-list-border-width: 1px;
+$thumbs-list-border-style: solid;
+$thumbs-list-border-color: lime;
 $thumbs-icon-color: #ffffff;
-$thumbs-border-size: 2px;
+$thumbs-border-width: 2px;
 $thumbs-border-style: solid;
 $thumbs-border-color: gray;
 $thumbs-active-border-color: lime;
+

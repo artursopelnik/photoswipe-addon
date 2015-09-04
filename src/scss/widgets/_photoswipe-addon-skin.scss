@@ -33,80 +33,59 @@
 	&:hover {
 		@include opacity(1);
 	}
-
 	&:active {
 		@include opacity(0.9);
 		outline: none;
 	}
-
 	&::-moz-focus-inner {
 		padding: 0;
 		border: 0
 	}
-}
-
-/* pswp__ui--over-close class it added when mouse is over element that should close gallery */
-.pswp__ui--over-close .pswp__button--close {
-	@include opacity(1);
-}
-
-.pswp__button,
-.pswp__button--arrow--left:before,
-.pswp__button--arrow--right:before {
-	width: 44px;
-	height: 44px;
-	display: block;
-	font: {
-        family: 'FontAwesome';
-    }
-}
-
-@media (-webkit-min-device-pixel-ratio: 1.1),  (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
-
-	/* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
-    .pswp--svg .pswp__button,
-    .pswp--svg .pswp__button--arrow--left:before,
-	.pswp--svg .pswp__button--arrow--right:before {
-        background-image: url(#{$pswp__assets-path}default-skin.svg);
-    }
-
-    .pswp--svg .pswp__button--arrow--left,
-	.pswp--svg .pswp__button--arrow--right {
-		background: none;
+	&:before {
+		display: block;
+		color: $topbar-button-color;
+		font: {
+			size: $topbar-button-icon-size;
+	        family: 'FontAwesome';
+	    }
 	}
 }
 
 .pswp__button--close {
-	background-position: 0 -44px;
+	&:before {
+		content: $topbar-button-icon-close;
+	}
 }
 
 .pswp__button--share {
-	background-position: -44px -44px;
+	&:before {
+		content: $topbar-button-icon-share;
+	}
 }
 
 .pswp__button--fs {
 	display: none;
-}
-
-.pswp--supports-fs .pswp__button--fs {
-	display: block;
-}
-
-.pswp--fs .pswp__button--fs {
-	background-position: -44px 0;
+	.pswp--supports-fs & {
+		display: block;
+		&:before {
+			content: $topbar-button-icon-fullscreen;
+		}
+	}
 }
 
 .pswp__button--zoom {
 	display: none;
-	background-position: -88px 0;
-}
-
-.pswp--zoom-allowed .pswp__button--zoom {
-	display: block;
-}
-
-.pswp--zoomed-in .pswp__button--zoom {
-	background-position: -132px 0;
+	.pswp--zoom-allowed & {
+		display: block;
+		&:before {
+			content: $topbar-button-icon-zoom-in;
+		}
+	}
+	.pswp--zoomed-in & {
+		&:before {
+			content: $topbar-button-icon-zoom-out;
+		}
+	}
 }
 
 /* no arrows on touch screens */
@@ -141,22 +120,27 @@
 
 .pswp__button--arrow--left:before,
 .pswp__button--arrow--right:before {
-	content: '';
-	top: 35px;
-	background-color: rgba(0,0,0,0.3);
-	height: 30px;
-	width: 32px;
 	position: absolute;
+	top: 50%;
+	margin-top: -($button-arrow-size / 2);
+	width: $button-arrow-size;
+	height: $button-arrow-size;
+	color: $button-arrow-icon-color;
+	background-color: $button-arrow-bg;
+	padding: ($button-arrow-size - $button-arrow-icon-size) / 2;
+	font: {
+		size: $button-arrow-icon-size;
+	}
 }
 
 .pswp__button--arrow--left:before {
+	content: $button-arrow-icon-left;
 	left: 6px;
-	background-position: -138px -44px;
 }
 
 .pswp__button--arrow--right:before {
+	content: $button-arrow-icon-right;
 	right: 6px;
-	background-position: -94px -44px;
 }
 
 
@@ -174,6 +158,7 @@
 }
 
 .pswp__share-modal {
+	@include opacity(0);
 	display: block;
 	background: rgba(0, 0, 0, 0.5);
 	width: 100%;
@@ -183,7 +168,6 @@
 	padding: 10px;
 	position: absolute;
 	z-index: $pswp__root-z-index + 100;
-	opacity: 0;
 	transition: opacity 0.25s ease-out;
 	-webkit-backface-visibility: hidden;
 	will-change: opacity;
@@ -234,7 +218,7 @@
 }
 
 .pswp__share-modal--fade-in {
-	opacity: 1;
+	@include opacity(1);
 
 	.pswp__share-tooltip {
 		transform: translateY(0);
@@ -300,6 +284,7 @@ a.pswp__share--download {
  */
 
 .pswp__counter {
+	@include opacity(0.75);
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -307,7 +292,6 @@ a.pswp__share--download {
 	font-size: 13px;
 	line-height: 44px;
 	color: #FFF;
-	opacity: 0.75;
 	padding: 0 10px;
 }
 
@@ -360,13 +344,13 @@ a.pswp__share--download {
  */
 
 .pswp__preloader {
+	@include opacity(0);
 	width: 44px;
 	height: 44px;
 	position: absolute;
 	top: 0;
 	left: 50%;
 	margin-left: -22px;
-	opacity: 0;
 	transition: opacity 0.25s ease-out;
 	will-change: opacity;
 	direction: ltr;
@@ -379,7 +363,7 @@ a.pswp__share--download {
 }
 
 .pswp__preloader--active {
-	opacity: 1;
+	@include opacity(1);
 
 	.pswp__preloader__icn {
 		/* We use .gif in browsers that don't support CSS animation */
@@ -389,7 +373,7 @@ a.pswp__share--download {
 
 .pswp--css_animation {
 	.pswp__preloader--active {
-		opacity: 1;
+		@include opacity(1);
 
 		.pswp__preloader__icn {
 			animation: clockwise 500ms linear infinite;
@@ -401,8 +385,8 @@ a.pswp__share--download {
 	}
 
 	.pswp__preloader__icn {
+		@include opacity(0.75);
 		background: none;
-		opacity: 0.75;
 		width: 14px;
 		height: 14px;
 		position: absolute;
@@ -469,9 +453,9 @@ a.pswp__share--download {
 
 /* root element of UI */
 .pswp__ui {
+	@include opacity(1);
 	-webkit-font-smoothing: auto;
 	visibility: visible;
-	opacity: 1;
 	z-index: $pswp__root-z-index + 50;
 }
 
@@ -518,12 +502,12 @@ a.pswp__share--download {
 
 .pswp__ui--idle {
 	.pswp__top-bar {
-		opacity: 0;
+		@include opacity(0);
 	}
 
 	.pswp__button--arrow--left,
 	.pswp__button--arrow--right {
-		opacity: 0;
+		@include opacity(0);
 	}
 }
 
@@ -537,7 +521,7 @@ a.pswp__share--download {
 	.pswp__button--arrow--left,
 	.pswp__button--arrow--right {
 		/* Force paint & create composition layer for controls. */
-		opacity: 0.001;
+		@include opacity(0.001);
 	}
 }
 
