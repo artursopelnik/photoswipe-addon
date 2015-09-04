@@ -34,6 +34,7 @@ var PhotoSwipeAddon = function (c_opts) {
                         src: obj.attr('href'),
                         w: obj.attr('data-w'),
                         h: obj.attr('data-h'),
+                        title: obj.attr('title'),
                         pid: i
                     };
                 that.options.items.push(obj_data);
