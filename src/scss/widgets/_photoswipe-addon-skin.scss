@@ -144,11 +144,7 @@
 }
 
 
-/*
-
-	2. Share modal/popup and links
-
- */
+// 2. Share modal/popup and links
 
 .pswp__counter,
 .pswp__share-modal {
@@ -158,9 +154,10 @@
 }
 
 .pswp__share-modal {
+	@include transition (opacity 0.25s ease-out);
 	@include opacity(0);
+	background: $share-modal-bg;
 	display: block;
-	background: rgba(0, 0, 0, 0.5);
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -168,7 +165,6 @@
 	padding: 10px;
 	position: absolute;
 	z-index: $pswp__root-z-index + 100;
-	transition: opacity 0.25s ease-out;
 	-webkit-backface-visibility: hidden;
 	will-change: opacity;
 }
@@ -178,41 +174,62 @@
 }
 
 .pswp__share-tooltip {
+	@include transition(transform 0.25s linear);
+	@include border-radius($share-tooltip-border-radius);
+	@include transform(translate(0px, 6px));
+	@include box-shadow(rgba(0, 0, 0, 0.25) 0px 2px 5px);
 	z-index: $pswp__root-z-index + 120;
 	position: absolute;
-	background: #FFF;
 	top: 56px;
-	border-radius: 2px;
-	display: block;
-	width: auto;
 	right: 44px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-	transform: translateY(6px);
-	transition: transform 0.25s;
+	width: auto;
+	display: block;
+	background: $share-tooltip-bg;
 	-webkit-backface-visibility: hidden;
 	will-change: transform;
-
 	a {
+		@include transition(color $time ease, background $time ease);
 		display: block;
-		padding: 8px 12px;
-		color: #000;
+		position: relative;
+		color: $share-link-color;
 		text-decoration: none;
-		font-size: 14px;
-		line-height: 18px;
-
+		font-size: $share-link-font-size;
+		line-height: $share-link-line-height;
+		padding: {
+			top: $share-link-padding-top;
+			bottom: $share-link-padding-bottom;
+			left: $share-link-padding-left * 2.5;
+			right: $share-link-padding-right;
+		}
+		&:before {
+			@include transition(color $time ease);
+			content: $fa-var-download;
+			display: block;
+			position: absolute;
+			left: $share-link-padding-left;
+			top: 50%;
+			line-height: 1;
+			color: $share-link-color;
+			margin-top: -($share-link-icon-size / 2);
+			font: {
+				family: "FontAwesome";
+				size: $share-link-icon-size;
+			}
+		}
 		&:hover {
 			text-decoration: none;
-			color: #000;
+			color: $share-link-color-hover;
+			&:before {
+				color: $share-link-color-hover;
+			}
 		}
-
-
 		&:first-child {
 			/* round corners on the first/last list item */
-			border-radius: 2px 2px 0 0;
+			@include border-radius($share-tooltip-border-radius $share-tooltip-border-radius 0 0);
 		}
 
 		&:last-child {
-			border-radius: 0 0 2px 2px;
+			@include border-radius(0 0 $share-tooltip-border-radius $share-tooltip-border-radius);
 		}
 	}
 }
@@ -221,17 +238,17 @@
 	@include opacity(1);
 
 	.pswp__share-tooltip {
-		transform: translateY(0);
+		@include transform(translate(0px, 0px));
 	}
 }
 
 /* increase size of share links on touch devices */
 .pswp--touch .pswp__share-tooltip a {
-	padding: 16px 12px;
+	padding: $share-link-touch-padding;
 }
 
 a.pswp__share--facebook {
-	&:before {
+	&:after {
 		content: '';
 		display: block;
 		width: 0;
@@ -240,33 +257,49 @@ a.pswp__share--facebook {
 		top: -12px;
 		right: 15px;
 		border: 6px solid rgba(0, 0, 0, 0);
-		border-bottom-color: #FFF;
+		border-bottom-color: $share-tooltip-bg;
 		-webkit-pointer-events: none;
 		-moz-pointer-events: none;
 		pointer-events: none;
 	}
-
+	&:before {
+		content: $share-facebook-link-icon;
+	}
 	&:hover {
-		background: #3E5C9A;
-		color: #FFF;
-
+		background: $share-facebook-link-bg;
+		color: $share-facebook-link-color-hover;
 		&:before {
-			border-bottom-color: #3E5C9A;
+			color: $share-facebook-link-color-hover;
+		}
+		&:after {
+			border-bottom-color: $share-facebook-link-bg;
 		}
 	}
 }
 
 a.pswp__share--twitter {
+	&:before {
+		content: $share-twitter-link-icon;
+	}
 	&:hover {
-		background: #55ACEE;
-		color: #FFF;
+		background: $share-twitter-link-bg;
+		color: $share-twitter-link-color-hover;
+		&:before {
+			color: $share-twitter-link-color-hover;
+		}
 	}
 }
 
 a.pswp__share--pinterest {
+	&:before {
+		content: $share-pinterest-link-icon;
+	}
 	&:hover {
-		background: #CCC;
-		color: #CE272D;
+		background: $share-pinterest-link-bg;
+		color: $share-pinterest-link-color-hover;
+		&:before {
+			color: $share-pinterest-link-color-hover;
+		}
 	}
 }
 
@@ -277,11 +310,7 @@ a.pswp__share--download {
 }
 
 
-/*
-
-	3. Index indicator ("1 of X" counter)
-
- */
+// 3. Index indicator ("1 of X" counter)
 
 .pswp__counter {
 	@include opacity(0.75);
@@ -296,11 +325,7 @@ a.pswp__share--download {
 }
 
 
-/*
-
-	4. Caption
-
- */
+//4. Caption
 
 .pswp__caption {
 	position: absolute;
@@ -308,21 +333,23 @@ a.pswp__share--download {
 	bottom: 0;
 	width: 100%;
 	min-height: 44px;
-
 	small {
-		font-size: 11px;
-		color: #BBB;
+		font-size: $caption-small-font-size;
+		color: $caption-small-font-color;
 	}
 }
 
 .pswp__caption__center {
 	text-align: left;
-	max-width: 420px;
+	max-width: 600px;
 	margin: 0 auto;
-	font-size: 13px;
-	padding: 10px;
-	line-height: 20px;
-	color: #CCC;
+	padding: $caption-padding;
+	line-height: $caption-line-height;
+	color: $caption-font-color;
+	font: {
+		family: $caption-font-family;
+		size: $caption-font-size;
+	}
 }
 
 .pswp__caption--empty {
@@ -335,13 +362,7 @@ a.pswp__share--download {
 }
 
 
-/*
-
-	5. Loading indicator (preloader)
-
-	You can play with it here - http://codepen.io/dimsemenov/pen/yyBWoR
-
- */
+//5. Loading indicator (preloader)
 
 .pswp__preloader {
 	@include opacity(0);
@@ -445,11 +466,7 @@ a.pswp__share--download {
 }
 
 
-/*
-
-	6. Additional styles
-
- */
+// 6. Additional styles
 
 /* root element of UI */
 .pswp__ui {

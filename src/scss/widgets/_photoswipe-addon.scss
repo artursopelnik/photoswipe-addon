@@ -9,7 +9,7 @@
 .pswp__scroll-wrap {
     .pswp__has-thumbs & {
         height: auto;
-        bottom: $thumbs-list-height;
+        bottom: $thumbs-list-height + $thumbs-list-padding + $thumbs-list-border-width + $thumbs-border-width;
     }
 }
 

@@ -241,7 +241,7 @@
 /* line 10, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__scroll-wrap {
   height: auto;
-  bottom: 150px;
+  bottom: 168px;
 }
 
 /* line 16, ../../src/scss/widgets/_photoswipe-addon.scss */
@@ -260,8 +260,8 @@
   overflow-x: auto;
   border-top-width: 1px;
   border-top-style: solid;
-  border-top-color: lime;
-  background-color: blue;
+  border-top-color: #ffffff;
+  background-color: #008c7d;
 }
 /* line 38, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs ul {
@@ -285,7 +285,7 @@
   margin-left: 4px;
   border-width: 2px;
   border-style: solid;
-  border-color: gray;
+  border-color: #ffffff;
 }
 /* line 52, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li img {
@@ -444,7 +444,7 @@
   width: 44px;
   height: 44px;
   color: #ffffff;
-  background-color: blue;
+  background-color: #008c7d;
   padding: 12px;
   font-size: 20px;
 }
@@ -461,12 +461,7 @@
   right: 6px;
 }
 
-/*
-
-	2. Share modal/popup and links
-
- */
-/* line 153, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 149, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__counter,
 .pswp__share-modal {
   -webkit-user-select: none;
@@ -474,12 +469,16 @@
   user-select: none;
 }
 
-/* line 160, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 156, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-modal {
+  -moz-transition: opacity 0.25s ease-out;
+  -o-transition: opacity 0.25s ease-out;
+  -webkit-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  display: block;
   background: rgba(0, 0, 0, 0.5);
+  display: block;
   width: 100%;
   height: 100%;
   top: 0;
@@ -487,74 +486,119 @@
   padding: 10px;
   position: absolute;
   z-index: 1600;
-  transition: opacity 0.25s ease-out;
   -webkit-backface-visibility: hidden;
   will-change: opacity;
 }
 
-/* line 176, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 172, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-modal--hidden {
   display: none;
 }
 
-/* line 180, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 176, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-tooltip {
+  -moz-transition: -moz-transform 0.25s linear;
+  -o-transition: -o-transform 0.25s linear;
+  -webkit-transition: -webkit-transform 0.25s linear;
+  transition: transform 0.25s linear;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-transform: translate(0px, 6px);
+  -ms-transform: translate(0px, 6px);
+  -webkit-transform: translate(0px, 6px);
+  transform: translate(0px, 6px);
+  -moz-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px;
   z-index: 1620;
   position: absolute;
-  background: #FFF;
   top: 56px;
-  border-radius: 2px;
-  display: block;
-  width: auto;
   right: 44px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  transform: translateY(6px);
-  transition: transform 0.25s;
+  width: auto;
+  display: block;
+  background: #ffffff;
   -webkit-backface-visibility: hidden;
   will-change: transform;
 }
-/* line 195, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 190, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-tooltip a {
+  -moz-transition: color 0.3s ease, background 0.3s ease;
+  -o-transition: color 0.3s ease, background 0.3s ease;
+  -webkit-transition: color 0.3s ease, background 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease;
   display: block;
-  padding: 8px 12px;
-  color: #000;
+  position: relative;
+  color: #000000;
   text-decoration: none;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 1.4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 37.5px;
+  padding-right: 15px;
 }
-/* line 203, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 204, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+.pswp__share-tooltip a:before {
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  line-height: 1;
+  color: #000000;
+  margin-top: -7px;
+  font-family: "FontAwesome";
+  font-size: 14px;
+}
+/* line 219, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-tooltip a:hover {
   text-decoration: none;
-  color: #000;
+  color: #000000;
 }
-/* line 209, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 222, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+.pswp__share-tooltip a:hover:before {
+  color: #000000;
+}
+/* line 226, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-tooltip a:first-child {
   /* round corners on the first/last list item */
+  -moz-border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 2px;
   border-radius: 2px 2px 0 0;
 }
-/* line 214, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 231, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-tooltip a:last-child {
+  -moz-border-radius: 0 0 2px 2px;
+  -webkit-border-radius: 0;
   border-radius: 0 0 2px 2px;
 }
 
-/* line 220, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 237, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-modal--fade-in {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 223, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 240, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__share-modal--fade-in .pswp__share-tooltip {
-  transform: translateY(0);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
 }
 
 /* increase size of share links on touch devices */
-/* line 229, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 246, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--touch .pswp__share-tooltip a {
-  padding: 16px 12px;
+  padding: 16px 15px;
 }
 
-/* line 234, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
-a.pswp__share--facebook:before {
+/* line 251, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--facebook:after {
   content: '';
   display: block;
   width: 0;
@@ -563,44 +607,63 @@ a.pswp__share--facebook:before {
   top: -12px;
   right: 15px;
   border: 6px solid transparent;
-  border-bottom-color: #FFF;
+  border-bottom-color: #ffffff;
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
   pointer-events: none;
 }
-/* line 249, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 265, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--facebook:before {
+  content: "";
+}
+/* line 268, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 a.pswp__share--facebook:hover {
-  background: #3E5C9A;
-  color: #FFF;
+  background: #3b5998;
+  color: #ffffff;
 }
-/* line 253, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 271, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 a.pswp__share--facebook:hover:before {
-  border-bottom-color: #3E5C9A;
+  color: #ffffff;
 }
-
-/* line 260, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
-a.pswp__share--twitter:hover {
-  background: #55ACEE;
-  color: #FFF;
-}
-
-/* line 267, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
-a.pswp__share--pinterest:hover {
-  background: #CCC;
-  color: #CE272D;
-}
-
 /* line 274, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--facebook:hover:after {
+  border-bottom-color: #3b5998;
+}
+
+/* line 281, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--twitter:before {
+  content: "";
+}
+/* line 284, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--twitter:hover {
+  background: #00aced;
+  color: #ffffff;
+}
+/* line 287, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--twitter:hover:before {
+  color: #ffffff;
+}
+
+/* line 294, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--pinterest:before {
+  content: "";
+}
+/* line 297, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--pinterest:hover {
+  background: #cb2027;
+  color: #ffffff;
+}
+/* line 300, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+a.pswp__share--pinterest:hover:before {
+  color: #ffffff;
+}
+
+/* line 307, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 a.pswp__share--download:hover {
   background: #DDD;
 }
 
-/*
-
-	3. Index indicator ("1 of X" counter)
-
- */
-/* line 286, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 315, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__counter {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
   opacity: 0.75;
@@ -614,12 +677,7 @@ a.pswp__share--download:hover {
   padding: 0 10px;
 }
 
-/*
-
-	4. Caption
-
- */
-/* line 305, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 330, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__caption {
   position: absolute;
   left: 0;
@@ -627,42 +685,36 @@ a.pswp__share--download:hover {
   width: 100%;
   min-height: 44px;
 }
-/* line 312, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 336, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__caption small {
-  font-size: 11px;
-  color: #BBB;
+  font-size: 12px;
+  color: #cccccc;
 }
 
-/* line 318, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 342, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__caption__center {
   text-align: left;
-  max-width: 420px;
+  max-width: 600px;
   margin: 0 auto;
-  font-size: 13px;
   padding: 10px;
-  line-height: 20px;
-  color: #CCC;
+  line-height: 1.4;
+  color: #ffffff;
+  font-family: "Arial", Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
-/* line 328, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 355, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__caption--empty {
   display: none;
 }
 
 /* Fake caption element, used to calculate height of next/prev image */
-/* line 333, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 360, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__caption--fake {
   visibility: hidden;
 }
 
-/*
-
-	5. Loading indicator (preloader)
-
-	You can play with it here - http://codepen.io/dimsemenov/pen/yyBWoR
-
- */
-/* line 346, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 367, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__preloader {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -677,38 +729,38 @@ a.pswp__share--download:hover {
   direction: ltr;
 }
 
-/* line 359, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 380, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__preloader__icn {
   width: 20px;
   height: 20px;
   margin: 12px;
 }
 
-/* line 365, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 386, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__preloader--active {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 368, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 389, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__preloader--active .pswp__preloader__icn {
   /* We use .gif in browsers that don't support CSS animation */
   background: url(../../src/scss/widgets/photoswipe/default-skin/preloader.gif) 0 0 no-repeat;
 }
 
-/* line 375, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 396, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--css_animation .pswp__preloader--active {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 378, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 399, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--css_animation .pswp__preloader--active .pswp__preloader__icn {
   animation: clockwise 500ms linear infinite;
 }
-/* line 382, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 403, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--css_animation .pswp__preloader--active .pswp__preloader__donut {
   animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite;
 }
-/* line 387, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 408, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--css_animation .pswp__preloader__icn {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
   opacity: 0.75;
@@ -720,7 +772,7 @@ a.pswp__share--download:hover {
   top: 15px;
   margin: 0;
 }
-/* line 399, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 420, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--css_animation .pswp__preloader__cut {
   /*
   	The idea of animating inner circle is based on Polymer ("material") loading indicator
@@ -731,7 +783,7 @@ a.pswp__share--download:hover {
   height: 14px;
   overflow: hidden;
 }
-/* line 410, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 431, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--css_animation .pswp__preloader__donut {
   box-sizing: border-box;
   width: 14px;
@@ -748,7 +800,7 @@ a.pswp__share--download:hover {
 }
 
 @media screen and (max-width: 1024px) {
-  /* line 427, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+  /* line 448, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
   .pswp__preloader {
     position: relative;
     left: auto;
@@ -776,13 +828,8 @@ a.pswp__share--download:hover {
     transform: rotate(0);
   }
 }
-/*
-
-	6. Additional styles
-
- */
 /* root element of UI */
-/* line 455, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 472, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__ui {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
@@ -792,7 +839,7 @@ a.pswp__share--download:hover {
 }
 
 /* top black bar with buttons and "1 of X" indicator */
-/* line 463, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 480, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__top-bar {
   position: absolute;
   left: 0;
@@ -801,7 +848,7 @@ a.pswp__share--download:hover {
   width: 100%;
 }
 
-/* line 471, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 488, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__caption,
 .pswp__top-bar,
 .pswp--has_mouse .pswp__button--arrow--left,
@@ -812,32 +859,32 @@ a.pswp__share--download:hover {
 }
 
 /* pswp--has_mouse class is added only when two subsequent mousemove events occur */
-/* line 482, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 499, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--has_mouse .pswp__button--arrow--left,
 .pswp--has_mouse .pswp__button--arrow--right {
   visibility: visible;
 }
 
-/* line 488, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 505, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__top-bar,
 .pswp__caption {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
-/* line 495, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 512, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__ui--fit .pswp__top-bar,
 .pswp__ui--fit .pswp__caption {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
-/* line 504, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 521, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__ui--idle .pswp__top-bar {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 508, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 525, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__ui--idle .pswp__button--arrow--left,
 .pswp__ui--idle .pswp__button--arrow--right {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -848,7 +895,7 @@ a.pswp__share--download:hover {
 	pswp__ui--hidden class is added when controls are hidden
 	e.g. when user taps to toggle visibility of controls
 */
-/* line 519, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 536, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__ui--hidden .pswp__top-bar,
 .pswp__ui--hidden .pswp__caption,
 .pswp__ui--hidden .pswp__button--arrow--left,
@@ -859,19 +906,19 @@ a.pswp__share--download:hover {
 }
 
 /* pswp__ui--one-slide class is added when there is just one item in gallery */
-/* line 530, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 547, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__ui--one-slide .pswp__button--arrow--left,
 .pswp__ui--one-slide .pswp__button--arrow--right,
 .pswp__ui--one-slide .pswp__counter {
   display: none;
 }
 
-/* line 537, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 554, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp__element--disabled {
   display: none !important;
 }
 
-/* line 543, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
+/* line 560, ../../src/scss/widgets/_photoswipe-addon-skin.scss */
 .pswp--minimal--dark .pswp__top-bar {
   background: none;
 }
