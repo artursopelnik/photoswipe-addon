@@ -19,7 +19,7 @@
 .gallery > a:before {
   content: "";
   display: block;
-  margin-top: 60%;
+  margin-top: 66%;
 }
 /* line 15, ../../src/scss/demo.scss */
 .gallery > a img {
