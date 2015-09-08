@@ -9,7 +9,7 @@
 .pswp__scroll-wrap {
     .pswp__has-thumbs & {
         height: auto;
-        bottom: $thumbs-list-height + $thumbs-list-padding + $thumbs-list-border-width + $thumbs-border-width;
+        bottom: $thumbs-list-height;
     }
 }
 
@@ -49,22 +49,30 @@
         li {
             display: inline-block;
             cursor: pointer;
+            padding: 0;
+            border: {
+                width: $thumbs-border-width;
+                style: $thumbs-border-style;
+                color: $thumbs-border-color;
+            }
             margin: {
+                top: 0;
+                bottom: 0;
+                right: 0;
                 left: 4px;
             }
             img {
                 display: block;
                 height: $thumbs-list-height - (($thumbs-border-width * 2) + ($thumbs-list-padding * 2));
             }
+            &:before {
+                content: "";
+                display: none;
+            }
             &:first-child {
                 margin: {
                     left: 0;
                 }
-            }
-            border: {
-                width: $thumbs-border-width;
-                style: $thumbs-border-style;
-                color: $thumbs-border-color;
             }
         }
         .pswp__thumb-active {
