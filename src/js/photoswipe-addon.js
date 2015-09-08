@@ -95,6 +95,8 @@ var PhotoSwipeAddon = function (c_opts) {
                 scrollLeft: scrollPos
             }, 300, 'swing');
 
+            console.log(that.pswpGallery.getCurrentIndex());
+
             $newActive.addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');
         }
     };

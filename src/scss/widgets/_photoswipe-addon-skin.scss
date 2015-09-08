@@ -17,7 +17,6 @@
 	@include transition(opacity $time ease);
 	@include opacity(0.75);
 	-webkit-appearance: none;
-	background: none;
 	width: 44px;
 	height: 44px;
 	position: relative;
@@ -29,6 +28,10 @@
 	margin: 0;
 	float: right;
 	box-shadow: none;
+	background: {
+		color: transparent !important;
+		image: none !important;
+	}
 	&:focus,
 	&:hover {
 		@include opacity(1);
@@ -44,6 +47,7 @@
 	&:before {
 		display: block;
 		color: $topbar-button-color;
+		line-height: 1;
 		font: {
 			size: $topbar-button-icon-size;
 	        family: 'FontAwesome';

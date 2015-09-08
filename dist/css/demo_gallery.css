@@ -1,0 +1,33 @@
+/* line 3, ../../src/scss/demo_gallery.scss */
+.gallery {
+  *zoom: 1;
+}
+/* line 38, ../../vendor/ruby/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.gallery:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 5, ../../src/scss/demo_gallery.scss */
+.gallery > a {
+  display: block;
+  position: relative;
+  width: 25%;
+  float: left;
+}
+/* line 10, ../../src/scss/demo_gallery.scss */
+.gallery > a:before {
+  content: "";
+  display: block;
+  margin-top: 66%;
+}
+/* line 15, ../../src/scss/demo_gallery.scss */
+.gallery > a img {
+  display: block;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
