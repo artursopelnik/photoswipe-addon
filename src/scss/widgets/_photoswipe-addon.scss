@@ -28,6 +28,7 @@
         width: 100%;
         overflow-y: hidden;
         overflow-x: auto;
+        height: $thumbs-list-height;
         border: {
             top: {
                 width: $thumbs-list-border-width;
@@ -50,6 +51,7 @@
             display: inline-block;
             cursor: pointer;
             padding: 0;
+            height: 100%;
             border: {
                 width: $thumbs-border-width;
                 style: $thumbs-border-style;
@@ -63,7 +65,7 @@
             }
             img {
                 display: block;
-                height: $thumbs-list-height - (($thumbs-border-width * 2) + ($thumbs-list-padding * 2));
+                height: 100%;
             }
             &:before {
                 content: "";
@@ -82,7 +84,7 @@
         }
         .pswp__thumbs-list {
             padding: $thumbs-list-padding;
-            height: $thumbs-list-height;
+            height: 100%;
         }
 
     }
