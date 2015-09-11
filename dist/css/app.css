@@ -241,15 +241,19 @@
 /* line 10, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__scroll-wrap {
   height: auto;
-  bottom: 150px;
+  bottom: 20%;
+}
+/* line 14, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp--fs .pswp__scroll-wrap {
+  bottom: 0;
 }
 
-/* line 16, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 19, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__bg {
   background-color: #000000;
 }
 
-/* line 21, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 24, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs {
   -moz-transition: opacity 0.3s linear, visibility 0.3s linear;
   -o-transition: opacity 0.3s linear, visibility 0.3s linear;
@@ -264,12 +268,13 @@
   width: 100%;
   overflow-y: hidden;
   overflow-x: auto;
+  height: 20%;
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: #ffffff;
   background-color: #008c7d;
 }
-/* line 41, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 45, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs ul {
   *zoom: 1;
   padding: 0;
@@ -284,11 +289,12 @@
   display: table;
   clear: both;
 }
-/* line 49, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 53, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs li {
   display: inline-block;
   cursor: pointer;
   padding: 0;
+  height: 100%;
   border-width: 2px;
   border-style: solid;
   border-color: #ffffff;
@@ -297,34 +303,39 @@
   margin-right: 0;
   margin-left: 4px;
 }
-/* line 64, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 69, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs li img {
   display: block;
-  height: 116px;
+  height: 100%;
 }
-/* line 68, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 73, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs li:before {
   content: "";
   display: none;
 }
-/* line 72, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 77, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs li:first-child {
   margin-left: 0;
 }
-/* line 78, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 83, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs .pswp__thumb-active {
   border-color: lime;
 }
-/* line 83, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 88, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs .pswp__thumbs-list {
   padding: 15px;
-  height: 150px;
+  height: 100%;
 }
-/* line 90, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 95, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs.pswp__thumbs--visible .pswp__thumbs {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   visibility: visible;
+}
+
+/* line 103, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp--fs .pswp__thumbs {
+  bottom: -20%;
 }
 
 /*

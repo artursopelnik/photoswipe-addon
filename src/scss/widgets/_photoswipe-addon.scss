@@ -11,6 +11,9 @@
         height: auto;
         bottom: $thumbs-list-height;
     }
+    .pswp--fs & {
+        bottom: 0;
+    }
 }
 
 .pswp__bg {
@@ -93,5 +96,11 @@
             @include opacity(1);
             visibility: visible;
         }
+    }
+}
+
+.pswp--fs {
+    .pswp__thumbs {
+        bottom: - $thumbs-list-height;
     }
 }

@@ -26,6 +26,7 @@ var PhotoSwipeAddon = function (c_opts) {
         that.openPSWP();
         that.bindThumbsEvents();
         that.setActiveThumb();
+        that.checkFullscreenMode();
     };
 
     that.getItems = function () {
@@ -114,6 +115,34 @@ var PhotoSwipeAddon = function (c_opts) {
             }
         }
         $.extend(that.options.pswp_settings, that.pswp_settings_addon);
+    };
+
+    that.checkFullscreenMode = function () {
+        var pswp = $('.pswp');
+
+        // document.addEventListener("fullscreenchange", function () {
+        //     if(!document.mozFullScreen) {
+        //         that.pswpGallery.updateSize(true);
+        //     }
+        // }, false);
+
+        document.addEventListener("mozfullscreenchange", function () {
+            if(!document.mozFullScreen && $('.pswp').hasClass('pswp--open')) {
+                that.pswpGallery.updateSize();
+            }
+        }, false);
+
+        // document.addEventListener("webkitfullscreenchange", function () {
+        //     if(!document.mozFullScreen) {
+        //         that.pswpGallery.updateSize(true);
+        //     }
+        // }, false);
+
+        // document.addEventListener("msfullscreenchange", function () {
+        //     if(!document.mozFullScreen) {
+        //         that.pswpGallery.updateSize(true);
+        //     }
+        // }, false);
     };
 
     that.openPSWP = function () {
