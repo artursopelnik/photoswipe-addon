@@ -20,84 +20,81 @@
     background-color: $overlay-bg;
 }
 
+.pswp__thumbs {
+    @include transition(opacity 0.3s linear, visibility 0.3s linear);
+    @include opacity(1);
+    visibility: visible;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    height: $thumbs-list-height;
+    border: {
+        top: {
+            width: $thumbs-list-border-width;
+            style: $thumbs-list-border-style;
+            color: $thumbs-list-border-color;
+        }
+    }
+    background: {
+        color: $thumbs-list-background;
+    }
+    ul {
+        @include pie-clearfix;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        white-space: nowrap;
+    }
+    li {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0;
+        border: {
+            width: $thumbs-border-width;
+            style: $thumbs-border-style;
+            color: $thumbs-border-color;
+        }
+        margin: {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 4px;
+        }
+        img {
+            display: block;
+            height: 100%;
+        }
+        &:before {
+            content: "";
+            display: none;
+        }
+        &:first-child {
+            margin: {
+                left: 0;
+            }
+        }
+    }
+    .pswp__thumb-active {
+        border: {
+            color: $thumbs-active-border-color;
+        }
+    }
+    .pswp__thumbs-list {
+        padding: $thumbs-list-padding;
+        height: 100%;
+    }
+
+}
 .pswp__has-thumbs {
     .pswp__thumbs {
-        @include transition(opacity 0.3s linear, visibility 0.3s linear);
-        @include opacity(0);
-        visibility: hidden;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow-y: hidden;
-        overflow-x: auto;
-        height: $thumbs-list-height;
-        border: {
-            top: {
-                width: $thumbs-list-border-width;
-                style: $thumbs-list-border-style;
-                color: $thumbs-list-border-color;
-            }
-        }
-        background: {
-            color: $thumbs-list-background;
-        }
-        ul {
-            @include pie-clearfix;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            white-space: nowrap;
-            height: 100%;
-        }
-        li {
-            display: inline-block;
-            cursor: pointer;
-            padding: 0;
-            height: 100%;
-            border: {
-                width: $thumbs-border-width;
-                style: $thumbs-border-style;
-                color: $thumbs-border-color;
-            }
-            margin: {
-                top: 0;
-                bottom: 0;
-                right: 0;
-                left: 4px;
-            }
-            img {
-                display: block;
-                height: 100%;
-            }
-            &:before {
-                content: "";
-                display: none;
-            }
-            &:first-child {
-                margin: {
-                    left: 0;
-                }
-            }
-        }
-        .pswp__thumb-active {
-            border: {
-                color: $thumbs-active-border-color;
-            }
-        }
-        .pswp__thumbs-list {
-            padding: $thumbs-list-padding;
-            height: 100%;
-        }
-
-    }
-    &.pswp__thumbs--visible {
-        .pswp__thumbs {
-            @include opacity(1);
-            visibility: visible;
-        }
+        @include opacity(1);
+        visibility: visible;
     }
 }
+
 
 .pswp--fs {
     .pswp__thumbs {

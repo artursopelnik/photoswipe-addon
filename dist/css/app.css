@@ -241,7 +241,7 @@
 /* line 10, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__scroll-wrap {
   height: auto;
-  bottom: 20%;
+  bottom: 150px;
 }
 /* line 14, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp--fs .pswp__scroll-wrap {
@@ -253,48 +253,46 @@
   background-color: #000000;
 }
 
-/* line 24, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs {
+/* line 23, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs {
   -moz-transition: opacity 0.3s linear, visibility 0.3s linear;
   -o-transition: opacity 0.3s linear, visibility 0.3s linear;
   -webkit-transition: opacity 0.3s linear, visibility 0.3s linear;
   transition: opacity 0.3s linear, visibility 0.3s linear;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  visibility: visible;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   overflow-y: hidden;
   overflow-x: auto;
-  height: 20%;
+  height: 150px;
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: #ffffff;
   background-color: #008c7d;
 }
-/* line 45, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs ul {
+/* line 44, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs ul {
   *zoom: 1;
   padding: 0;
   margin: 0;
   list-style: none;
   white-space: nowrap;
-  height: 100%;
 }
 /* line 38, ../../vendor/ruby/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
-.pswp__has-thumbs .pswp__thumbs ul:after {
+.pswp__thumbs ul:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 53, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs li {
+/* line 51, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li {
   display: inline-block;
   cursor: pointer;
   padding: 0;
-  height: 100%;
   border-width: 2px;
   border-style: solid;
   border-color: #ffffff;
@@ -303,39 +301,40 @@
   margin-right: 0;
   margin-left: 4px;
 }
-/* line 69, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs li img {
+/* line 66, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li img {
   display: block;
   height: 100%;
 }
-/* line 73, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs li:before {
+/* line 70, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li:before {
   content: "";
   display: none;
 }
-/* line 77, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs li:first-child {
+/* line 74, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li:first-child {
   margin-left: 0;
 }
-/* line 83, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs .pswp__thumb-active {
+/* line 80, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs .pswp__thumb-active {
   border-color: lime;
 }
-/* line 88, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs .pswp__thumbs .pswp__thumbs-list {
+/* line 85, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs .pswp__thumbs-list {
   padding: 15px;
   height: 100%;
 }
-/* line 95, ../../src/scss/widgets/_photoswipe-addon.scss */
-.pswp__has-thumbs.pswp__thumbs--visible .pswp__thumbs {
+
+/* line 92, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__has-thumbs .pswp__thumbs {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   visibility: visible;
 }
 
-/* line 103, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 100, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp--fs .pswp__thumbs {
-  bottom: -20%;
+  bottom: -150px;
 }
 
 /*
