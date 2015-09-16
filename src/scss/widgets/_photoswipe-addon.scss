@@ -119,3 +119,24 @@
         bottom: - $thumbs-list-height;
     }
 }
+
+.video-wrap {
+    @include transform(translate(-50%, -50%));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65%;
+    > div {
+        height: 0;
+        overflow: hidde;
+        padding-bottom: 56.34%;
+        position: relative;
+        iframe {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}

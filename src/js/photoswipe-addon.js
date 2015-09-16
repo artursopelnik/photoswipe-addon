@@ -41,6 +41,29 @@ var PhotoSwipeAddon = function (c_opts) {
                         pid: i,
                         el: obj
                     };
+
+
+                if(that.isValidYouTubeUrl(obj.attr('href'))) {
+                    var youtubeID = that.isValidYouTubeUrl(obj.attr('href')),
+                        videoHtml = '';
+
+                        videoHtml += '<div class="video-wrap">';
+                        videoHtml +=    '<div>';
+                        videoHtml +=        '<iframe src="https://www.youtube.com/embed/' + youtubeID + '" frameborder="0" allowfullscreen></iframe>';
+                        videoHtml +=    '</div>';
+                        videoHtml += '</div>';
+
+                    obj_data = {
+                        msrc: obj.find('img').attr('src'),
+                        w: obj.attr('data-w'),
+                        h: obj.attr('data-h'),
+                        title: obj.attr('title'),
+                        pid: i,
+                        el: obj,
+                        html: videoHtml
+                    }
+                }
+
                 that.options.items.push(obj_data);
 
                 if (that.options.thumbnails === true) {
@@ -116,33 +139,11 @@ var PhotoSwipeAddon = function (c_opts) {
         $.extend(that.options.pswp_settings, that.pswp_settings_addon);
     };
 
-    // that.checkFullscreenMode = function () {
-        // var pswp = $('.pswp');
+    that.isValidYouTubeUrl = function (value) {
+        var regex = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
-        // document.addEventListener("fullscreenchange", function () {
-        //     if(!document.fullscreen) {
-        //         that.pswpGallery.updateSize(true);
-        //     }
-        // }, false);
-
-        // document.addEventListener("mozfullscreenchange", function () {
-        //     if(!document.mozFullScreen && $('.pswp').hasClass('pswp--open')) {
-        //         that.pswpGallery.updateSize();
-        //     }
-        // }, false);
-
-        // document.addEventListener("webkitfullscreenchange", function () {
-        //     if(!document.webkitIsFullScreen) {
-        //         that.pswpGallery.updateSize();
-        //     }
-        // }, false);
-
-        // document.addEventListener("msfullscreenchange", function () {
-        //     if(!document.msFullscreenElement) {
-        //         that.pswpGallery.updateSize(true);
-        //     }
-        // }, false);
-    // };
+        return (value.match(regex)) ? RegExp.$1 : false;
+    };
 
     that.openPSWP = function () {
         that.pswpGallery = new PhotoSwipe(that.pswpElement, PhotoSwipeUI_Default, that.options.items, that.options.pswp_settings);

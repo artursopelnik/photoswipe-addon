@@ -355,6 +355,33 @@
   bottom: -150px;
 }
 
+/* line 123, ../../src/scss/widgets/_photoswipe-addon.scss */
+.video-wrap {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65%;
+}
+/* line 129, ../../src/scss/widgets/_photoswipe-addon.scss */
+.video-wrap > div {
+  height: 0;
+  overflow: hidde;
+  padding-bottom: 56.34%;
+  position: relative;
+}
+/* line 134, ../../src/scss/widgets/_photoswipe-addon.scss */
+.video-wrap > div iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 /*
 	Contents:
 
