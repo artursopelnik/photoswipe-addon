@@ -1,3 +1,11 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 * {
     @include box-sizing(border-box);
     &:before,
@@ -10,6 +18,9 @@
     .pswp__has-thumbs & {
         height: auto;
         bottom: $thumbs-list-height;
+        @media screen and (max-height: 710px) {
+            bottom: 0;
+        }
     }
     .pswp--fs & {
         bottom: 0;
@@ -22,14 +33,14 @@
 
 .pswp__thumbs {
     @include transition(opacity 0.3s linear, visibility 0.3s linear);
-    @include opacity(1);
-    visibility: visible;
+    @include opacity(0);
+    visibility: hidden;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: hidden;
     height: $thumbs-list-height;
     border: {
         top: {
@@ -41,17 +52,22 @@
     background: {
         color: $thumbs-list-background;
     }
+    @media screen and (max-height: 710px) {
+        visibility: hidden !important;
+    }
     ul {
         @include pie-clearfix;
         padding: 0;
         margin: 0;
         list-style: none;
         white-space: nowrap;
+        height: 100%;
     }
     li {
         display: inline-block;
         cursor: pointer;
         padding: 0;
+        height: 100%;
         border: {
             width: $thumbs-border-width;
             style: $thumbs-border-style;
@@ -65,7 +81,7 @@
         }
         img {
             display: block;
-            height: 100%;
+            height: $thumbs-list-height - (($thumbs-list-padding * 2) + strip-unit($thumbs-list-border-width + ($thumbs-border-width * 2)));
         }
         &:before {
             content: "";
@@ -86,14 +102,16 @@
         padding: $thumbs-list-padding;
         height: 100%;
     }
-
-}
-.pswp__has-thumbs {
-    .pswp__thumbs {
+    .pswp__has-thumbs & {
         @include opacity(1);
         visibility: visible;
     }
+    .pswp--touch & {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 }
+
 
 
 .pswp--fs {

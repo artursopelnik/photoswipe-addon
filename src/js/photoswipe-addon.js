@@ -26,7 +26,6 @@ var PhotoSwipeAddon = function (c_opts) {
         that.openPSWP();
         that.bindThumbsEvents();
         that.setActiveThumb();
-        // that.checkFullscreenMode();
     };
 
     that.getItems = function () {
@@ -86,7 +85,13 @@ var PhotoSwipeAddon = function (c_opts) {
     that.setActiveThumb = function () {
         if (_thumbs.length > 0) {
             var $newActive = $('.pswp__thumbs li').eq(that.pswpGallery.getCurrentIndex()),
-                scrollPos = $newActive.offset().left + $('.pswp__thumbs').scrollLeft() - 20;
+                scrollPos = 0;
+
+            if(!$newActive.prev().length > 0) {
+                scrollPos = $newActive.offset().left + $('.pswp__thumbs').scrollLeft()
+            } else {
+                scrollPos = $newActive.prev().offset().left + $('.pswp__thumbs').scrollLeft()
+            }
 
             $('.pswp__thumbs').stop(false, false).animate({
                 scrollLeft: scrollPos

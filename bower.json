@@ -1,5 +1,29 @@
 {
-  "name": "photoswipe addon",
-  "description": "Photoswipe addon",
-  "homepage": "https://github.com/jChris85/photoswipe-addon"
+    "name": "photoswipe addon",
+    "description": "Photoswipe addon",
+    "version": "0.0.1",
+    "homepage": "https://github.com/jChris85/photoswipe-addon",
+    "dependencies": {
+        "jquery": "1.11.3",
+        "photoswipe": "4.1.0"
+    },
+    "authors": [
+        "Chris Heinrich",
+        "Dominik Laube"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "vendor",
+        "demo",
+        "fonts"
+        "index.html",
+        "install.sh",
+        "config.rb"
+    ],
+    "resolutions": {
+        "jquery": "*"
+    }
 }

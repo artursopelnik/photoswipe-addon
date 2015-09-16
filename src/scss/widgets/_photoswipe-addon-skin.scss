@@ -247,9 +247,9 @@
 }
 
 /* increase size of share links on touch devices */
-.pswp--touch .pswp__share-tooltip a {
-	padding: $share-link-touch-padding;
-}
+// .pswp--touch .pswp__share-tooltip a {
+// 	padding: $share-link-touch-padding;
+// }
 
 a.pswp__share--facebook {
 	&:after {
