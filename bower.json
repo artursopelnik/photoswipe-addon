@@ -18,7 +18,7 @@
         "bower_components",
         "vendor",
         "demo",
-        "fonts"
+        "fonts",
         "index.html",
         "install.sh",
         "config.rb"
