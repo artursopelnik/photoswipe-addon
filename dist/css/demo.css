@@ -316,46 +316,69 @@
   margin-left: 4px;
 }
 /* line 82, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li.video-thumb {
+  position: relative;
+}
+/* line 84, ../../src/scss/widgets/_photoswipe-addon.scss */
+.pswp__thumbs li.video-thumb:before {
+  content: "";
+  display: block;
+  line-height: 1;
+  cursor: pointer;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin-top: -15px;
+  margin-left: -15px;
+  font-size: 30px;
+  font-family: 'FontAwesome';
+}
+/* line 105, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li img {
   display: block;
   height: 115px;
 }
-/* line 86, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 109, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li:before {
   content: "";
   display: none;
 }
-/* line 90, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 113, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs li:first-child {
   margin-left: 0;
 }
-/* line 96, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 119, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs .pswp__thumb-active {
   border-color: lime;
 }
-/* line 101, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 124, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__thumbs .pswp__thumbs-list {
   padding: 15px;
   height: 100%;
 }
-/* line 105, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 128, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp__has-thumbs .pswp__thumbs {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   visibility: visible;
 }
-/* line 109, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 132, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp--touch .pswp__thumbs {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 118, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 141, ../../src/scss/widgets/_photoswipe-addon.scss */
 .pswp--fs .pswp__thumbs {
   bottom: -150px;
 }
 
-/* line 123, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 146, ../../src/scss/widgets/_photoswipe-addon.scss */
 .video-wrap {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -364,22 +387,74 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 65%;
+  width: 100%;
+  max-width: 900px;
+  display: none;
 }
-/* line 129, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 154, ../../src/scss/widgets/_photoswipe-addon.scss */
 .video-wrap > div {
   height: 0;
   overflow: hidde;
   padding-bottom: 56.34%;
   position: relative;
 }
-/* line 134, ../../src/scss/widgets/_photoswipe-addon.scss */
+/* line 159, ../../src/scss/widgets/_photoswipe-addon.scss */
 .video-wrap > div iframe {
   height: 100%;
   width: 100%;
   position: absolute;
   left: 0;
   top: 0;
+}
+
+/* line 169, ../../src/scss/widgets/_photoswipe-addon.scss */
+.image-wrap {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  cursor: pointer;
+}
+/* line 178, ../../src/scss/widgets/_photoswipe-addon.scss */
+.image-wrap:before {
+  content: "";
+  display: block;
+  line-height: 1;
+  cursor: pointer;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  margin-top: -50px;
+  margin-left: -50px;
+  font-size: 100px;
+  font-family: 'FontAwesome';
+}
+/* line 199, ../../src/scss/widgets/_photoswipe-addon.scss */
+.image-wrap:hover:before {
+  color: #008c7d;
+}
+/* line 203, ../../src/scss/widgets/_photoswipe-addon.scss */
+.image-wrap img {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 /*

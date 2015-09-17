@@ -79,6 +79,29 @@
             right: 0;
             left: 4px;
         }
+        &.video-thumb {
+            position: relative;
+            &:before {
+                content: $video-thumb-icon;
+                display: block;
+                line-height: 1;
+                cursor: pointer;
+                color: $video-thumb-icon-color;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 5;
+                width: $video-thumb-icon-size;
+                height: $video-thumb-icon-size;
+                text-align: center;
+                margin-top: -($video-thumb-icon-size / 2);
+                margin-left: -($video-thumb-icon-size / 2);
+                font: {
+                    size: $video-thumb-icon-size;
+                    family: 'FontAwesome';
+                }
+            }
+        }
         img {
             display: block;
             height: $thumbs-list-height - (($thumbs-list-padding * 2) + strip-unit($thumbs-list-border-width + ($thumbs-border-width * 2)));
@@ -125,7 +148,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 65%;
+    width: 100%;
+    max-width: 900px;
+    display: none;
     > div {
         height: 0;
         overflow: hidde;
@@ -138,5 +163,49 @@
             left: 0;
             top: 0;
         }
+    }
+}
+
+.image-wrap {
+    @include transform(translate(-50%, -50%));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    cursor: pointer;
+    &:before {
+        content: $video-icon;
+        display: block;
+        line-height: 1;
+        cursor: pointer;
+        color: $video-icon-color;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 5;
+        width: $video-icon-size;
+        height: $video-icon-size;
+        text-align: center;
+        margin-top: -($video-icon-size / 2);
+        margin-left: -($video-icon-size / 2);
+        font: {
+            size: $video-icon-size;
+            family: 'FontAwesome';
+        }
+    }
+    &:hover {
+        &:before {
+            color: $video-icon-color-hover;
+        }
+    }
+    img {
+        @include transform(translate(-50%, -50%));
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
 }

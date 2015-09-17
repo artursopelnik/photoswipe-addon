@@ -26,6 +26,7 @@ var PhotoSwipeAddon = function (c_opts) {
         that.openPSWP();
         that.bindThumbsEvents();
         that.setActiveThumb();
+        that.video();
     };
 
     that.getItems = function () {
@@ -42,16 +43,18 @@ var PhotoSwipeAddon = function (c_opts) {
                         el: obj
                     };
 
+                if(obj.attr('data-url') && that.isValidYouTubeUrl(obj.attr('data-url'))) {
+                    var customContent = '';
 
-                if(that.isValidYouTubeUrl(obj.attr('href'))) {
-                    var youtubeID = that.isValidYouTubeUrl(obj.attr('href')),
-                        videoHtml = '';
+                        customContent += '<div class="video-wrap">';
+                        customContent +=    '<div>'
+                        customContent +=        '<iframe src="" frameborder="0" allowfullscreen></iframe>';
+                        customContent +=    '</div>';
+                        customContent += '</div>';
 
-                        videoHtml += '<div class="video-wrap">';
-                        videoHtml +=    '<div>';
-                        videoHtml +=        '<iframe src="https://www.youtube.com/embed/' + youtubeID + '" frameborder="0" allowfullscreen></iframe>';
-                        videoHtml +=    '</div>';
-                        videoHtml += '</div>';
+                        customContent += '<div class="image-wrap" data-url="' + obj.attr('data-url') + '">';
+                        customContent +=    '<img src="' + obj.attr('href') + '" class="pswp_img">';
+                        customContent += '</div>';
 
                     obj_data = {
                         msrc: obj.find('img').attr('src'),
@@ -60,7 +63,7 @@ var PhotoSwipeAddon = function (c_opts) {
                         title: obj.attr('title'),
                         pid: i,
                         el: obj,
-                        html: videoHtml
+                        html: customContent
                     }
                 }
 
@@ -68,6 +71,10 @@ var PhotoSwipeAddon = function (c_opts) {
 
                 if (that.options.thumbnails === true) {
                     var thumb = '<li>' + obj.html() + '</li>';
+
+                    if(obj.attr('data-url') && that.isValidYouTubeUrl(obj.attr('data-url'))) {
+                        thumb = '<li class="video-thumb">' + obj.html() + '</li>';
+                    }
 
                     _thumbs += thumb;
                 }
@@ -139,15 +146,36 @@ var PhotoSwipeAddon = function (c_opts) {
         $.extend(that.options.pswp_settings, that.pswp_settings_addon);
     };
 
+    that.openPSWP = function () {
+        that.pswpGallery = new PhotoSwipe(that.pswpElement, PhotoSwipeUI_Default, that.options.items, that.options.pswp_settings);
+        that.pswpGallery.init();
+    };
+
     that.isValidYouTubeUrl = function (value) {
         var regex = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
         return (value.match(regex)) ? RegExp.$1 : false;
     };
 
-    that.openPSWP = function () {
-        that.pswpGallery = new PhotoSwipe(that.pswpElement, PhotoSwipeUI_Default, that.options.items, that.options.pswp_settings);
-        that.pswpGallery.init();
+    that.video = function() {
+        $('body').on('touchstart click', '.image-wrap', function() {
+            var img = $(this),
+                url = img.attr('data-url'),
+                videoID = that.isValidYouTubeUrl(url),
+                embedUrl = 'https://www.youtube.com/embed/' + videoID;
+
+            img.hide();
+            img.siblings('.video-wrap').find('iframe').show().attr('src', embedUrl);
+            img.siblings('.video-wrap').show();
+        });
+
+        that.pswpGallery.listen('beforeChange', function() {
+            var img = $('.image-wrap'),
+                iframe = img.siblings('.video-wrap').find('iframe');
+
+            img.show();
+            iframe.attr('src', '').hide();
+        });
     };
 
     that.init();
