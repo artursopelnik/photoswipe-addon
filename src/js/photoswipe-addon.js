@@ -162,7 +162,7 @@ var PhotoSwipeAddon = function (c_opts) {
             var img = $(this),
                 url = img.attr('data-url'),
                 videoID = that.isValidYouTubeUrl(url),
-                embedUrl = 'https://www.youtube.com/embed/' + videoID;
+                embedUrl = 'https://www.youtube.com/embed/' + videoID + '?autoplay=1';
 
             img.hide();
             img.siblings('.video-wrap').find('iframe').show().attr('src', embedUrl);
