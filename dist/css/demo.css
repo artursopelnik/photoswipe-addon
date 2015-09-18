@@ -697,7 +697,6 @@
   -o-transition: color 0.3s ease;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
-  content: "";
   display: block;
   position: absolute;
   left: 15px;

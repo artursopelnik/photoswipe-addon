@@ -1,83 +1,85 @@
 // transition speed
 $time: 0.3s;
 
-// overlay
-$overlay-bg: #000000;
+$lightbox: (
+    // overlay
+    overlay-bg: #000000,
 
-// overlay topbar buttons
-$topbar-button-color: #ffffff;
-$topbar-button-size: 44px;
-$topbar-button-icon-size: 14px;
-$topbar-button-icon-close: $fa-var-close;
-$topbar-button-icon-fullscreen: $fa-var-expand;
-$topbar-button-icon-share: $fa-var-share;
-$topbar-button-icon-zoom-in: $fa-var-search-plus;
-$topbar-button-icon-zoom-out: $fa-var-search-minus;
+    // overlay topbar buttons
+    topbar-button-color: #ffffff,
+    topbar-button-size: 44px,
+    topbar-button-icon-size: 14px,
+    topbar-button-icon-close: $fa-var-close,
+    topbar-button-icon-fullscreen: $fa-var-expand,
+    topbar-button-icon-share: $fa-var-share,
+    topbar-button-icon-zoom-in: $fa-var-search-plus,
+    topbar-button-icon-zoom-out: $fa-var-search-minus,
 
-// overlay prev/next button
-$button-arrow-size: 44px;
-$button-arrow-bg: #008c7d;
-$button-arrow-icon-size: 20px;
-$button-arrow-icon-color: #ffffff;
-$button-arrow-icon-left: $fa-var-angle-left;
-$button-arrow-icon-right: $fa-var-angle-right;
+    // overlay prev/next button
+    button-arrow-size: 44px,
+    button-arrow-bg: #008c7d,
+    button-arrow-icon-size: 20px,
+    button-arrow-icon-color: #ffffff,
+    button-arrow-icon-left: $fa-var-angle-left,
+    button-arrow-icon-right: $fa-var-angle-right,
 
-// caption
-$caption-padding: 10px;
-$caption-font-family: 'Arial', Helvetica Neue, Helvetica, sans-serif;;
-$caption-font-size: 14px;
-$caption-font-color: #ffffff;
-$caption-line-height: 1.4;
-$caption-small-font-size: 12px;
-$caption-small-font-color: #cccccc;
+    // caption
+    caption-padding: 10px,
+    caption-font-family: ('Arial', Helvetica Neue, Helvetica, sans-serif),
+    caption-font-size: 14px,
+    caption-font-color: #ffffff,
+    caption-line-height: 1.4,
+    caption-small-font-size: 12px,
+    caption-small-font-color: #cccccc,
 
-// thumbnails
-$thumbs-list-height: 150px;
-$thumbs-list-padding: 15px;
-$thumbs-list-background: #008c7d;
-$thumbs-list-border-width: 1px;
-$thumbs-list-border-style: solid;
-$thumbs-list-border-color: #ffffff;
-$thumbs-icon-color: #ffffff;
-$thumbs-border-width: 2px;
-$thumbs-border-style: solid;
-$thumbs-border-color: #ffffff;
-$thumbs-active-border-color: lime;
+    // thumbnails
+    thumbs-list-height: 150px,
+    thumbs-list-padding: 15px,
+    thumbs-list-background: #008c7d,
+    thumbs-list-border-width: 1px,
+    thumbs-list-border-style: solid,
+    thumbs-list-border-color: #ffffff,
+    thumbs-icon-color: #ffffff,
+    thumbs-border-width: 2px,
+    thumbs-border-style: solid,
+    thumbs-border-color: #ffffff,
+    thumbs-active-border-color: lime,
 
-// share modal
-$share-modal-bg: rgba(0, 0, 0, 0.5);
+    // share modal
+    share-modal-bg: rgba(0, 0, 0, 0.5),
 
-// share tooltip
-$share-tooltip-bg: #ffffff;
-$share-tooltip-border-radius: 2px;
-$share-link-padding-top: 10px;
-$share-link-padding-bottom: 10px;
-$share-link-padding-left: 15px;
-$share-link-padding-right: 15px;
-$share-link-font-size: 16px;
-$share-link-line-height: 1.4;
-$share-link-color: #000000;
-$share-link-color-hover: #000000;
-$share-link-icon-size: 14px;
+    // share tooltip
+    share-tooltip-bg: #ffffff,
+    share-tooltip-border-radius: 2px,
+    share-link-padding-top: 10px,
+    share-link-padding-bottom: 10px,
+    share-link-padding-left: 15px,
+    share-link-padding-right: 15px,
+    share-link-font-size: 16px,
+    share-link-line-height: 1.4,
+    share-link-color: #000000,
+    share-link-color-hover: #000000,
+    share-link-icon-size: 14px,
 
-$share-facebook-link-icon: $fa-var-facebook;
-$share-facebook-link-bg: #3b5998;
-$share-facebook-link-color-hover: #ffffff;
+    share-facebook-link-icon: $fa-var-facebook,
+    share-facebook-link-bg: #3b5998,
+    share-facebook-link-color-hover: #ffffff,
 
-$share-twitter-link-icon: $fa-var-twitter;
-$share-twitter-link-bg: #00aced;
-$share-twitter-link-color-hover: #ffffff;
+    share-twitter-link-icon: $fa-var-twitter,
+    share-twitter-link-bg: #00aced,
+    share-twitter-link-color-hover: #ffffff,
 
-$share-pinterest-link-icon: $fa-var-pinterest;
-$share-pinterest-link-bg: #cb2027;
-$share-pinterest-link-color-hover: #ffffff;
+    share-pinterest-link-icon: $fa-var-pinterest,
+    share-pinterest-link-bg: #cb2027,
+    share-pinterest-link-color-hover: #ffffff,
 
-// video preview
-$video-icon: $fa-var-play-circle-o;
-$video-icon-size: 100px;
-$video-icon-color: #ffffff;
-$video-icon-color-hover: #008c7d;
+    // video preview
+    video-icon: $fa-var-play-circle-o,
+    video-icon-size: 100px,
+    video-icon-color: #ffffff,
+    video-icon-color-hover: #008c7d,
 
-$video-thumb-icon: $fa-var-play-circle-o;
-$video-thumb-icon-size: 30px;
-$video-thumb-icon-color: #ffffff;
+    video-thumb-icon: $fa-var-play-circle-o,
+    video-thumb-icon-size: 30px,
+    video-thumb-icon-color: #ffffff,
+);

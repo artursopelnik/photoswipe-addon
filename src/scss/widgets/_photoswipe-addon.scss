@@ -17,7 +17,7 @@
 .pswp__scroll-wrap {
     .pswp__has-thumbs & {
         height: auto;
-        bottom: $thumbs-list-height;
+        bottom: map-get($lightbox, thumbs-list-height);
         @media screen and (max-height: 710px) {
             bottom: 0;
         }
@@ -28,7 +28,7 @@
 }
 
 .pswp__bg {
-    background-color: $overlay-bg;
+    background-color: map-get($lightbox, overlay-bg);
 }
 
 .pswp__thumbs {
@@ -41,16 +41,16 @@
     width: 100%;
     overflow-y: hidden;
     overflow-x: hidden;
-    height: $thumbs-list-height;
+    height: map-get($lightbox, thumbs-list-height);
     border: {
         top: {
-            width: $thumbs-list-border-width;
-            style: $thumbs-list-border-style;
-            color: $thumbs-list-border-color;
+            width: map-get($lightbox, thumbs-list-border-width);
+            style: map-get($lightbox, thumbs-list-border-style);
+            color: map-get($lightbox, thumbs-list-border-color);
         }
     }
     background: {
-        color: $thumbs-list-background;
+        color: map-get($lightbox, thumbs-list-background);
     }
     @media screen and (max-height: 710px) {
         visibility: hidden !important;
@@ -69,9 +69,9 @@
         padding: 0;
         height: 100%;
         border: {
-            width: $thumbs-border-width;
-            style: $thumbs-border-style;
-            color: $thumbs-border-color;
+            width: map-get($lightbox, thumbs-border-width);
+            style: map-get($lightbox, thumbs-border-style);
+            color: map-get($lightbox, thumbs-border-color);
         }
         margin: {
             top: 0;
@@ -82,29 +82,29 @@
         &.video-thumb {
             position: relative;
             &:before {
-                content: $video-thumb-icon;
+                content: map-get($lightbox, video-thumb-icon);
                 display: block;
                 line-height: 1;
                 cursor: pointer;
-                color: $video-thumb-icon-color;
+                color: map-get($lightbox, video-thumb-icon-color);
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 z-index: 5;
-                width: $video-thumb-icon-size;
-                height: $video-thumb-icon-size;
+                width: map-get($lightbox, video-thumb-icon-size);
+                height: map-get($lightbox, video-thumb-icon-size);
                 text-align: center;
-                margin-top: -($video-thumb-icon-size / 2);
-                margin-left: -($video-thumb-icon-size / 2);
+                margin-top: -(map-get($lightbox, video-thumb-icon-size) / 2);
+                margin-left: -(map-get($lightbox, video-thumb-icon-size) / 2);
                 font: {
-                    size: $video-thumb-icon-size;
+                    size: map-get($lightbox, video-thumb-icon-size);
                     family: 'FontAwesome';
                 }
             }
         }
         img {
             display: block;
-            height: $thumbs-list-height - (($thumbs-list-padding * 2) + strip-unit($thumbs-list-border-width + ($thumbs-border-width * 2)));
+            height: map-get($lightbox, thumbs-list-height) - ((map-get($lightbox, thumbs-list-padding) * 2) + strip-unit(map-get($lightbox, thumbs-list-border-width) + (map-get($lightbox, thumbs-border-width) * 2)));
         }
         &:before {
             content: "";
@@ -118,11 +118,11 @@
     }
     .pswp__thumb-active {
         border: {
-            color: $thumbs-active-border-color;
+            color: map-get($lightbox, thumbs-active-border-color);
         }
     }
     .pswp__thumbs-list {
-        padding: $thumbs-list-padding;
+        padding: map-get($lightbox, thumbs-list-padding);
         height: 100%;
     }
     .pswp__has-thumbs & {
@@ -139,7 +139,7 @@
 
 .pswp--fs {
     .pswp__thumbs {
-        bottom: - $thumbs-list-height;
+        bottom: - map-get($lightbox, thumbs-list-height);
     }
 }
 
@@ -176,28 +176,28 @@
     height: 100%;
     cursor: pointer;
     &:before {
-        content: $video-icon;
+        content: map-get($lightbox, video-icon);
         display: block;
         line-height: 1;
         cursor: pointer;
-        color: $video-icon-color;
+        color: map-get($lightbox, video-icon-color);
         position: absolute;
         top: 50%;
         left: 50%;
         z-index: 5;
-        width: $video-icon-size;
-        height: $video-icon-size;
+        width: map-get($lightbox, video-icon-size);
+        height: map-get($lightbox, video-icon-size);
         text-align: center;
-        margin-top: -($video-icon-size / 2);
-        margin-left: -($video-icon-size / 2);
+        margin-top: -(map-get($lightbox, video-icon-size) / 2);
+        margin-left: -(map-get($lightbox, video-icon-size) / 2);
         font: {
-            size: $video-icon-size;
+            size: map-get($lightbox, video-icon-size);
             family: 'FontAwesome';
         }
     }
     &:hover {
         &:before {
-            color: $video-icon-color-hover;
+            color: map-get($lightbox, video-icon-color-hover);
         }
     }
     img {

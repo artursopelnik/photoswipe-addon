@@ -46,10 +46,10 @@
 	}
 	&:before {
 		display: block;
-		color: $topbar-button-color;
+		color: map-get($lightbox, topbar-button-color);
 		line-height: 1;
 		font: {
-			size: $topbar-button-icon-size;
+			size: map-get($lightbox, topbar-button-icon-size);
 	        family: 'FontAwesome';
 	    }
 	}
@@ -57,13 +57,13 @@
 
 .pswp__button--close {
 	&:before {
-		content: $topbar-button-icon-close;
+		content: map-get($lightbox, topbar-button-icon-close);
 	}
 }
 
 .pswp__button--share {
 	&:before {
-		content: $topbar-button-icon-share;
+		content: map-get($lightbox, topbar-button-icon-share);
 	}
 }
 
@@ -72,7 +72,7 @@
 	.pswp--supports-fs & {
 		display: block;
 		&:before {
-			content: $topbar-button-icon-fullscreen;
+			content: map-get($lightbox, topbar-button-icon-fullscreen);
 		}
 	}
 }
@@ -82,12 +82,12 @@
 	.pswp--zoom-allowed & {
 		display: block;
 		&:before {
-			content: $topbar-button-icon-zoom-in;
+			content: map-get($lightbox, topbar-button-icon-zoom-in);
 		}
 	}
 	.pswp--zoomed-in & {
 		&:before {
-			content: $topbar-button-icon-zoom-out;
+			content: map-get($lightbox, topbar-button-icon-zoom-out);
 		}
 	}
 }
@@ -126,24 +126,24 @@
 .pswp__button--arrow--right:before {
 	position: absolute;
 	top: 50%;
-	margin-top: -($button-arrow-size / 2);
-	width: $button-arrow-size;
-	height: $button-arrow-size;
-	color: $button-arrow-icon-color;
-	background-color: $button-arrow-bg;
-	padding: ($button-arrow-size - $button-arrow-icon-size) / 2;
+	margin-top: -(map-get($lightbox, button-arrow-size) / 2);
+	width: map-get($lightbox, button-arrow-size);
+	height: map-get($lightbox, button-arrow-size);
+	color: map-get($lightbox, button-arrow-icon-color);
+	background-color: map-get($lightbox, button-arrow-bg);
+	padding: (map-get($lightbox, button-arrow-size) - map-get($lightbox, button-arrow-icon-size)) / 2;
 	font: {
-		size: $button-arrow-icon-size;
+		size: map-get($lightbox, button-arrow-icon-size);
 	}
 }
 
 .pswp__button--arrow--left:before {
-	content: $button-arrow-icon-left;
+	content: map-get($lightbox, button-arrow-icon-left);
 	left: 6px;
 }
 
 .pswp__button--arrow--right:before {
-	content: $button-arrow-icon-right;
+	content: map-get($lightbox, button-arrow-icon-right);
 	right: 6px;
 }
 
@@ -160,7 +160,7 @@
 .pswp__share-modal {
 	@include transition (opacity 0.25s ease-out);
 	@include opacity(0);
-	background: $share-modal-bg;
+	background: map-get($lightbox, share-modal-bg);
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -179,7 +179,7 @@
 
 .pswp__share-tooltip {
 	@include transition(transform 0.25s linear);
-	@include border-radius($share-tooltip-border-radius);
+	@include border-radius(map-get($lightbox, share-tooltip-border-radius));
 	@include transform(translate(0px, 6px));
 	@include box-shadow(rgba(0, 0, 0, 0.25) 0px 2px 5px);
 	z-index: $pswp__root-z-index + 120;
@@ -188,52 +188,52 @@
 	right: 44px;
 	width: auto;
 	display: block;
-	background: $share-tooltip-bg;
+	background: map-get($lightbox, share-tooltip-bg);
 	-webkit-backface-visibility: hidden;
 	will-change: transform;
 	a {
 		@include transition(color $time ease, background $time ease);
 		display: block;
 		position: relative;
-		color: $share-link-color;
+		color: map-get($lightbox, share-link-color);
 		text-decoration: none;
-		font-size: $share-link-font-size;
-		line-height: $share-link-line-height;
+		font-size: map-get($lightbox, share-link-font-size);
+		line-height: map-get($lightbox, share-link-line-height);
 		padding: {
-			top: $share-link-padding-top;
-			bottom: $share-link-padding-bottom;
-			left: $share-link-padding-left * 2.5;
-			right: $share-link-padding-right;
+			top: map-get($lightbox, share-link-padding-top);
+			bottom: map-get($lightbox, share-link-padding-bottom);
+			left: map-get($lightbox, share-link-padding-left) * 2.5;
+			right: map-get($lightbox, share-link-padding-right);
 		}
 		&:before {
 			@include transition(color $time ease);
-			content: $fa-var-download;
+			content: map-get($lightbox, fa-var-download);
 			display: block;
 			position: absolute;
-			left: $share-link-padding-left;
+			left: map-get($lightbox, share-link-padding-left);
 			top: 50%;
 			line-height: 1;
-			color: $share-link-color;
-			margin-top: -($share-link-icon-size / 2);
+			color: map-get($lightbox, share-link-color);
+			margin-top: -(map-get($lightbox, share-link-icon-size) / 2);
 			font: {
 				family: "FontAwesome";
-				size: $share-link-icon-size;
+				size: map-get($lightbox, share-link-icon-size);
 			}
 		}
 		&:hover {
 			text-decoration: none;
-			color: $share-link-color-hover;
+			color: map-get($lightbox, share-link-color-hover);
 			&:before {
-				color: $share-link-color-hover;
+				color: map-get($lightbox, share-link-color-hover);
 			}
 		}
 		&:first-child {
 			/* round corners on the first/last list item */
-			@include border-radius($share-tooltip-border-radius $share-tooltip-border-radius 0 0);
+			@include border-radius(map-get($lightbox, share-tooltip-border-radius) map-get($lightbox, share-tooltip-border-radius) 0 0);
 		}
 
 		&:last-child {
-			@include border-radius(0 0 $share-tooltip-border-radius $share-tooltip-border-radius);
+			@include border-radius(0 0 map-get($lightbox, share-tooltip-border-radius) map-get($lightbox, share-tooltip-border-radius));
 		}
 	}
 }
@@ -261,48 +261,48 @@ a.pswp__share--facebook {
 		top: -12px;
 		right: 15px;
 		border: 6px solid rgba(0, 0, 0, 0);
-		border-bottom-color: $share-tooltip-bg;
+		border-bottom-color: map-get($lightbox, share-tooltip-bg);
 		-webkit-pointer-events: none;
 		-moz-pointer-events: none;
 		pointer-events: none;
 	}
 	&:before {
-		content: $share-facebook-link-icon;
+		content: map-get($lightbox, share-facebook-link-icon);
 	}
 	&:hover {
-		background: $share-facebook-link-bg;
-		color: $share-facebook-link-color-hover;
+		background: map-get($lightbox, share-facebook-link-bg);
+		color: map-get($lightbox, share-facebook-link-color-hover);
 		&:before {
-			color: $share-facebook-link-color-hover;
+			color: map-get($lightbox, share-facebook-link-color-hover);
 		}
 		&:after {
-			border-bottom-color: $share-facebook-link-bg;
+			border-bottom-color: map-get($lightbox, share-facebook-link-bg);
 		}
 	}
 }
 
 a.pswp__share--twitter {
 	&:before {
-		content: $share-twitter-link-icon;
+		content: map-get($lightbox, share-twitter-link-icon);
 	}
 	&:hover {
-		background: $share-twitter-link-bg;
-		color: $share-twitter-link-color-hover;
+		background: map-get($lightbox, share-twitter-link-bg);
+		color: map-get($lightbox, share-twitter-link-color-hover);
 		&:before {
-			color: $share-twitter-link-color-hover;
+			color: map-get($lightbox, share-twitter-link-color-hover);
 		}
 	}
 }
 
 a.pswp__share--pinterest {
 	&:before {
-		content: $share-pinterest-link-icon;
+		content: map-get($lightbox, share-pinterest-link-icon);
 	}
 	&:hover {
-		background: $share-pinterest-link-bg;
-		color: $share-pinterest-link-color-hover;
+		background: map-get($lightbox, share-pinterest-link-bg);
+		color: map-get($lightbox, share-pinterest-link-color-hover);
 		&:before {
-			color: $share-pinterest-link-color-hover;
+			color: map-get($lightbox, share-pinterest-link-color-hover);
 		}
 	}
 }
@@ -338,8 +338,8 @@ a.pswp__share--download {
 	width: 100%;
 	min-height: 44px;
 	small {
-		font-size: $caption-small-font-size;
-		color: $caption-small-font-color;
+		font-size: map-get($lightbox, caption-small-font-size);
+		color: map-get($lightbox, caption-small-font-color);
 	}
 }
 
@@ -347,12 +347,12 @@ a.pswp__share--download {
 	text-align: left;
 	max-width: 600px;
 	margin: 0 auto;
-	padding: $caption-padding;
-	line-height: $caption-line-height;
-	color: $caption-font-color;
+	padding: map-get($lightbox, caption-padding);
+	line-height: map-get($lightbox, caption-line-height);
+	color: map-get($lightbox, caption-font-color);
 	font: {
-		family: $caption-font-family;
-		size: $caption-font-size;
+		family: map-get($lightbox, caption-font-family);
+		size: map-get($lightbox, caption-font-size);
 	}
 }
 
