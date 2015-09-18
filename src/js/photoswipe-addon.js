@@ -176,6 +176,14 @@ var PhotoSwipeAddon = function (c_opts) {
             img.show();
             iframe.attr('src', '').hide();
         });
+
+        that.pswpGallery.listen('close', function() {
+            var img = $('.image-wrap'),
+                iframe = img.siblings('.video-wrap').find('iframe');
+
+            img.show();
+            iframe.attr('src', '').hide();
+        });
     };
 
     that.init();
