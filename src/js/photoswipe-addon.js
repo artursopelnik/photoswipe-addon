@@ -47,7 +47,7 @@ var PhotoSwipeAddon = function (c_opts) {
                     var customContent = '';
 
                         customContent += '<div class="video-wrap">';
-                        customContent +=    '<div>'
+                        customContent +=    '<div>';
                         customContent +=        '<iframe src="" frameborder="0" allowfullscreen></iframe>';
                         customContent +=    '</div>';
                         customContent += '</div>';
@@ -64,7 +64,7 @@ var PhotoSwipeAddon = function (c_opts) {
                         pid: i,
                         el: obj,
                         html: customContent
-                    }
+                    };
                 }
 
                 that.options.items.push(obj_data);
@@ -79,8 +79,6 @@ var PhotoSwipeAddon = function (c_opts) {
                     _thumbs += thumb;
                 }
             });
-        } else {
-            //todo
         }
     };
 
@@ -117,10 +115,10 @@ var PhotoSwipeAddon = function (c_opts) {
             var $newActive = $('.pswp__thumbs li').eq(that.pswpGallery.getCurrentIndex()),
                 scrollPos = 0;
 
-            if(!$newActive.prev().length > 0) {
-                scrollPos = $newActive.offset().left + $('.pswp__thumbs').scrollLeft()
+            if($newActive.prev().length === 0) {
+                scrollPos = $newActive.offset().left + $('.pswp__thumbs').scrollLeft();
             } else {
-                scrollPos = $newActive.prev().offset().left + $('.pswp__thumbs').scrollLeft()
+                scrollPos = $newActive.prev().offset().left + $('.pswp__thumbs').scrollLeft();
             }
 
             $('.pswp__thumbs').stop(false, false).animate({
@@ -141,7 +139,7 @@ var PhotoSwipeAddon = function (c_opts) {
 
                     return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
                 }
-            }
+            };
         }
         $.extend(that.options.pswp_settings, that.pswp_settings_addon);
     };
