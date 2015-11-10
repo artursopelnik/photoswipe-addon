@@ -93,7 +93,7 @@ var PhotoSwipeAddon = function (c_opts) {
         var pswp = $('.pswp');
 
         if (_thumbs.length > 0) {
-            $(document).off('click').on('click', '.pswp__thumbs li', function () {
+            $(document).off('click.pswp__thumbs').on('click.pswp__thumbs', '.pswp__thumbs li', function () {
                 var $el = $(this);
 
                 that.pswpGallery.goTo($el.index());
