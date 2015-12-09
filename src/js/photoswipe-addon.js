@@ -160,7 +160,7 @@ var PhotoSwipeAddon = function (c_opts) {
             var img = $(this),
                 url = img.attr('data-url'),
                 videoID = that.isValidYouTubeUrl(url),
-                embedUrl = 'https://www.youtube.com/embed/' + videoID + '?autoplay=1';
+                embedUrl = 'https://www.youtube.com/embed/' + videoID + '?wmode=opaque&amp;autoplay=1&amp;enablejsapi=1';
 
             img.hide();
             img.siblings('.video-wrap').find('iframe').show().attr('src', embedUrl);
@@ -171,6 +171,7 @@ var PhotoSwipeAddon = function (c_opts) {
             var img = $('.image-wrap'),
                 iframe = img.siblings('.video-wrap').find('iframe');
 
+            that.pauseVideo();
             img.show();
             iframe.attr('src', '').hide();
         });
@@ -179,9 +180,19 @@ var PhotoSwipeAddon = function (c_opts) {
             var img = $('.image-wrap'),
                 iframe = img.siblings('.video-wrap').find('iframe');
 
-            img.show();
-            iframe.attr('src', '').hide();
+            that.pauseVideo();
+            // img.show();
+            // iframe.attr('src', '').hide();
         });
+    };
+
+    that.pauseVideo = function() {
+        var img = $('.image-wrap'),
+            iframe = img.siblings('.video-wrap').find('iframe');
+
+        if(iframe.length > 0) {
+            iframe[0].contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
     };
 
     that.init();
