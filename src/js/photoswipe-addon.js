@@ -43,18 +43,18 @@ var PhotoSwipeAddon = function (c_opts) {
                         el: obj
                     };
 
-                if(obj.attr('data-url') && that.isValidYouTubeUrl(obj.attr('data-url'))) {
+                if (obj.attr('data-url') && that.isValidYouTubeUrl(obj.attr('data-url'))) {
                     var customContent = '';
 
-                        customContent += '<div class="video-wrap">';
-                        customContent +=    '<div>';
-                        customContent +=        '<iframe src="" frameborder="0" allowfullscreen></iframe>';
-                        customContent +=    '</div>';
-                        customContent += '</div>';
+                    customContent += '<div class="video-wrap">';
+                    customContent += '<div>';
+                    customContent += '<iframe src="" frameborder="0" allowfullscreen></iframe>';
+                    customContent += '</div>';
+                    customContent += '</div>';
 
-                        customContent += '<div class="image-wrap" data-url="' + obj.attr('data-url') + '">';
-                        customContent +=    '<img src="' + obj.attr('href') + '" class="pswp_img">';
-                        customContent += '</div>';
+                    customContent += '<div class="image-wrap" data-url="' + obj.attr('data-url') + '">';
+                    customContent += '<img src="' + obj.attr('href') + '" class="pswp_img">';
+                    customContent += '</div>';
 
                     obj_data = {
                         msrc: obj.find('img').attr('src'),
@@ -72,7 +72,7 @@ var PhotoSwipeAddon = function (c_opts) {
                 if (that.options.thumbnails === true) {
                     var thumb = '<li>' + obj.html() + '</li>';
 
-                    if(obj.attr('data-url') && that.isValidYouTubeUrl(obj.attr('data-url'))) {
+                    if (obj.attr('data-url') && that.isValidYouTubeUrl(obj.attr('data-url'))) {
                         thumb = '<li class="video-thumb">' + obj.html() + '</li>';
                     }
 
@@ -100,11 +100,11 @@ var PhotoSwipeAddon = function (c_opts) {
                 $el.addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');
             });
 
-            that.pswpGallery.listen('afterChange', function() {
+            that.pswpGallery.listen('afterChange', function () {
                 that.setActiveThumb();
             });
 
-            that.pswpGallery.listen('close', function() {
+            that.pswpGallery.listen('close', function () {
                 $('.pswp').removeClass('pswp__has-thumbs');
             });
         }
@@ -115,7 +115,7 @@ var PhotoSwipeAddon = function (c_opts) {
             var $newActive = $('.pswp__thumbs li').eq(that.pswpGallery.getCurrentIndex()),
                 scrollPos = 0;
 
-            if($newActive.prev().length === 0) {
+            if ($newActive.prev().length === 0) {
                 scrollPos = $newActive.offset().left + $('.pswp__thumbs').scrollLeft();
             } else {
                 scrollPos = $newActive.prev().offset().left + $('.pswp__thumbs').scrollLeft();
@@ -132,12 +132,12 @@ var PhotoSwipeAddon = function (c_opts) {
     that.makePswpSettings = function () {
         if (that.options.animateZoom) {
             that.pswp_settings_addon = {
-                getThumbBoundsFn: function(index) {
+                getThumbBoundsFn: function (index) {
                     var thumbnail = that.options.items[index].el[0].getElementsByTagName('img')[0],
                         pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
                         rect = thumbnail.getBoundingClientRect();
 
-                    return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+                    return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
                 }
             };
         }
@@ -155,19 +155,21 @@ var PhotoSwipeAddon = function (c_opts) {
         return (value.match(regex)) ? RegExp.$1 : false;
     };
 
-    that.video = function() {
-        $('body').on('touchstart click', '.image-wrap', function() {
-            var img = $(this),
-                url = img.attr('data-url'),
-                videoID = that.isValidYouTubeUrl(url),
-                embedUrl = 'https://www.youtube.com/embed/' + videoID + '?wmode=opaque&amp;autoplay=1&amp;enablejsapi=1';
+    that.video = function () {
+        that.playVideoAfterClicked = true;
 
-            img.hide();
-            img.siblings('.video-wrap').find('iframe').show().attr('src', embedUrl);
-            img.siblings('.video-wrap').show();
+        if (that.options.el.attr('data-url') &&
+            that.isValidYouTubeUrl(that.options.el.attr('data-url')) &&
+            that.playVideoAfterClicked) {
+            that.videoReplace($('.image-wrap').filter('[data-url="' + that.options.el.attr('data-url') + '"]'));
+            that.playVideoAfterClicked = false;
+        }
+
+        $('body').on('touchstart click', '.image-wrap', function () {
+            that.videoReplace($(this));
         });
 
-        that.pswpGallery.listen('beforeChange', function() {
+        that.pswpGallery.listen('beforeChange', function () {
             var img = $('.image-wrap'),
                 iframe = img.siblings('.video-wrap').find('iframe');
 
@@ -176,21 +178,29 @@ var PhotoSwipeAddon = function (c_opts) {
             iframe.attr('src', '').hide();
         });
 
-        that.pswpGallery.listen('close', function() {
+        that.pswpGallery.listen('close', function () {
             var img = $('.image-wrap'),
                 iframe = img.siblings('.video-wrap').find('iframe');
 
             that.pauseVideo();
-            // img.show();
-            // iframe.attr('src', '').hide();
         });
     };
 
-    that.pauseVideo = function() {
+    that.videoReplace = function (element) {
+        var url = element.attr('data-url'),
+            videoID = that.isValidYouTubeUrl(url),
+            embedUrl = 'https://www.youtube.com/embed/' + videoID + '?wmode=opaque&amp;autoplay=1&amp;enablejsapi=1';
+
+        element.hide();
+        element.siblings('.video-wrap').find('iframe').show().attr('src', embedUrl);
+        element.siblings('.video-wrap').show();
+    };
+
+    that.pauseVideo = function () {
         var img = $('.image-wrap'),
             iframe = img.siblings('.video-wrap').find('iframe');
 
-        if(iframe.length > 0) {
+        if (iframe.length > 0) {
             iframe[0].contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         }
     };
