@@ -98,6 +98,10 @@ var PhotoSwipeAddon = function (c_opts) {
 
                 that.pswpGallery.goTo($el.index());
                 $el.addClass('pswp__thumb-active').siblings().removeClass('pswp__thumb-active');
+
+                if ($el.hasClass('video-thumb')) {
+                    $('.image-wrap').trigger('click');
+                }
             });
 
             that.pswpGallery.listen('afterChange', function () {
