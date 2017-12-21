@@ -1,11 +1,11 @@
 {
     "name": "photoswipe addon",
     "description": "Photoswipe addon",
-    "version": "0.0.1",
-    "homepage": "https://github.com/jChris85/photoswipe-addon",
+    "version": "1.0.1",
+    "homepage": "https://github.com/artursopelnik/photoswipe-addon.git",
     "dependencies": {
         "jquery": "1.11.3",
-        "photoswipe": "4.1.0"
+        "photoswipe": "4.1.2"
     },
     "authors": [
         "Chris Heinrich",
