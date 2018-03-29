@@ -205,7 +205,9 @@ var PhotoSwipeAddon = function (c_opts) {
             iframe = img.siblings('.video-wrap').find('iframe');
 
         if (iframe.length > 0) {
-            iframe[0].contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            iframe.filter('[src*="://"]').each(function (i, el) {
+                el.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            });
         }
     };
 

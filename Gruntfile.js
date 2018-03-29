@@ -39,7 +39,7 @@ module.exports = function (grunt) {
             website: {
                 options: {
                     bundleExec: true,
-                    config : 'config.rb'
+                    config: 'config.rb'
                 }
             }
         }
@@ -51,6 +51,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compass');
 
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass']);
     grunt.registerTask('app', ['jshint', 'concat']);
+    grunt.registerTask('default', ['build']);
+    grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass']);
 };
