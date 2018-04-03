@@ -1,7 +1,7 @@
 require 'bundler/setup'
 
 # change this when finished developing to anything else than "development" (e.g. "production")
-environment      = :development
+environment      = :production
 
 disable_warnings = ( environment == :development ) ? false : true
 line_comments    = ( environment == :development ) ? true : false
