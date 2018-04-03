@@ -1,7 +1,7 @@
 {
     "name": "photoswipe addon",
     "description": "Photoswipe addon",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "homepage": "https://github.com/artursopelnik/photoswipe-addon.git",
     "dependencies": {
         "jquery": "1.11.3",
