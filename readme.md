@@ -1,7 +1,3 @@
-##Photoswipe Addon
-
-Feature list coming soon. =)
-
 ## Nachfolgend sind einige Schritte beschrieben die beim erstellen einer neuen Version mittels Git-Tags berücksichtigt werden sollten.
 
 
