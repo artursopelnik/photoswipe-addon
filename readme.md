@@ -1,4 +1,6 @@
-# Photoswipe Addon
+# photoswipe-addon
+
+Um das Projekt einzurichten bitte setup.sh ausführen
 
 ## Release erstellen
 
