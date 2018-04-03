@@ -23,4 +23,3 @@ Optional: Fehlerhafter Git-Tag kann hiermit wieder entfernt werden: $ git tag 1.
 Veröffentliche die neue Version mittels: $ git push --tags
 
 Optional: Fehlerhaften Git-Tag auf dem Git-Server löschen/veröffentlichen: $ git push origin :1.0.0
-
